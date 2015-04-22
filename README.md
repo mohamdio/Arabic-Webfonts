@@ -25,6 +25,7 @@ the plugin depend on " Arabic fonts library " from http://fontface.me/
 * Reset any section settings or all settings.
 
 == Changelog ==
+
 = 1.0 =
 * 2015-4-22
 * Initial release
