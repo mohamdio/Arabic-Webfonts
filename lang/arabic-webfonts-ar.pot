@@ -1,0 +1,320 @@
+# WordPress Blank Pot
+# Copyright (C) 2014 ...
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Arabic Webfonts v1.0\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2015-04-18 19:17+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jozoor Team <admin@jozoor.com>\n"
+"Language-Team: Jozoor Team <info@jozoor.com>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n;_n:1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-arabic-webfonts-custom-controls.php:31
+msgid "Reset settings"
+msgstr "إعادة تعيين الإعدادات"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:55
+msgid "Select Font"
+msgstr "إختر نوع الخط"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:104
+#: includes/class-arabic-webfonts-post-type.php:68
+msgid "Arabic Webfonts"
+msgstr "خطوط عربية"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:105
+msgid ""
+"An easy way to add Arabic fonts to any theme without coding using WordPress "
+"Customizer."
+msgstr ""
+"إضافة الخطوط العربية بكل سهولة لأى قالب بدون أكواد باستخدام خيار تخصيص فى "
+"الووردبريس"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:119
+msgid "Body"
+msgstr "جسم الصفحة"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:120
+msgid "Control in body content typography"
+msgstr "التحكم فى عناصر جسم الصفحة بشكل عام"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:127
+#: includes/class-arabic-webfonts-customizer-settings.php:184
+#: includes/class-arabic-webfonts-customizer-settings.php:266
+#: includes/class-arabic-webfonts-customizer-settings.php:336
+#: includes/class-arabic-webfonts-customizer-settings.php:406
+#: includes/class-arabic-webfonts-customizer-settings.php:476
+#: includes/class-arabic-webfonts-customizer-settings.php:546
+#: includes/class-arabic-webfonts-customizer-settings.php:616
+#: includes/class-arabic-webfonts-customizer-settings.php:703
+msgid "Font Family"
+msgstr "نوع الخط"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:136
+#: includes/class-arabic-webfonts-customizer-settings.php:193
+#: includes/class-arabic-webfonts-customizer-settings.php:275
+#: includes/class-arabic-webfonts-customizer-settings.php:345
+#: includes/class-arabic-webfonts-customizer-settings.php:415
+#: includes/class-arabic-webfonts-customizer-settings.php:485
+#: includes/class-arabic-webfonts-customizer-settings.php:555
+#: includes/class-arabic-webfonts-customizer-settings.php:625
+#: includes/class-arabic-webfonts-customizer-settings.php:712
+msgid "Font Size"
+msgstr "حجم الخط"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:137
+#: includes/class-arabic-webfonts-customizer-settings.php:194
+#: includes/class-arabic-webfonts-customizer-settings.php:626
+#: includes/class-arabic-webfonts-customizer-settings.php:713
+msgid "from 10 to 100 px, default = 14px"
+msgstr "من 10 الى 100 px, الافتراضى = 14px"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:150
+#: includes/class-arabic-webfonts-customizer-settings.php:207
+#: includes/class-arabic-webfonts-customizer-settings.php:289
+#: includes/class-arabic-webfonts-customizer-settings.php:359
+#: includes/class-arabic-webfonts-customizer-settings.php:429
+#: includes/class-arabic-webfonts-customizer-settings.php:499
+#: includes/class-arabic-webfonts-customizer-settings.php:569
+#: includes/class-arabic-webfonts-customizer-settings.php:639
+#: includes/class-arabic-webfonts-customizer-settings.php:726
+msgid "Line Height"
+msgstr "المسافة بين السطور"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:151
+#: includes/class-arabic-webfonts-customizer-settings.php:208
+#: includes/class-arabic-webfonts-customizer-settings.php:290
+#: includes/class-arabic-webfonts-customizer-settings.php:360
+#: includes/class-arabic-webfonts-customizer-settings.php:430
+#: includes/class-arabic-webfonts-customizer-settings.php:500
+#: includes/class-arabic-webfonts-customizer-settings.php:570
+#: includes/class-arabic-webfonts-customizer-settings.php:640
+#: includes/class-arabic-webfonts-customizer-settings.php:727
+msgid "from 0.5 to 5, default = 1.2"
+msgstr "من 0.5 الى 5, الافتراضى = 1.2"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:176
+msgid "Paragraphs"
+msgstr "النصوص"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:177
+msgid "Control in Paragraphs typography"
+msgstr "التحكم فى النصوص بشكل عام"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:221
+#: includes/class-arabic-webfonts-customizer-settings.php:303
+#: includes/class-arabic-webfonts-customizer-settings.php:373
+#: includes/class-arabic-webfonts-customizer-settings.php:443
+#: includes/class-arabic-webfonts-customizer-settings.php:513
+#: includes/class-arabic-webfonts-customizer-settings.php:583
+#: includes/class-arabic-webfonts-customizer-settings.php:653
+#: includes/class-arabic-webfonts-customizer-settings.php:740
+msgid "Text Decoration"
+msgstr "تنسيق النص"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:227
+#: includes/class-arabic-webfonts-customizer-settings.php:309
+#: includes/class-arabic-webfonts-customizer-settings.php:379
+#: includes/class-arabic-webfonts-customizer-settings.php:449
+#: includes/class-arabic-webfonts-customizer-settings.php:519
+#: includes/class-arabic-webfonts-customizer-settings.php:589
+#: includes/class-arabic-webfonts-customizer-settings.php:659
+#: includes/class-arabic-webfonts-customizer-settings.php:746
+msgid "Select Decoration"
+msgstr "إختر التنسيق"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:248
+msgid "Headings"
+msgstr "العناوين"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:249
+msgid "Control in Headings typography"
+msgstr "التحكم فى العناوين بشكل عام"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:258
+msgid "Heading - H1"
+msgstr "عنوان - H1"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:276
+msgid "from 10 to 100 px, default = 24px"
+msgstr "من 10 الى 100 px, الافتراضى = 24px"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:328
+msgid "Heading - H2"
+msgstr "عنوان - H2"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:346
+msgid "from 10 to 100 px, default = 22px"
+msgstr "من 10 الى 100 px, الافتراضى = 22px"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:398
+msgid "Heading - H3"
+msgstr "عنوان - H3"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:416
+msgid "from 10 to 100 px, default = 20px"
+msgstr "من 10 الى 100 px, الافتراضى = 20px"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:468
+msgid "Heading - H4"
+msgstr "عنوان - H4"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:486
+msgid "from 10 to 100 px, default = 18px"
+msgstr "من 10 الى 100 px, الافتراضى = 18px"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:538
+msgid "Heading - H5"
+msgstr "عنوان - H5"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:556
+msgid "from 10 to 100 px, default = 16px"
+msgstr "من 10 الى 100 px, الافتراضى = 16px"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:608
+msgid "Heading - H6"
+msgstr "عنوان - H6"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:767
+msgid "Custom controls"
+msgstr "عناصر التحكم الخاصة"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:768
+msgid "Control in Custom Controls typography"
+msgstr "التحكم فى كل العناصر الخاصة المضافة"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:780
+msgid "Reset All Settings"
+msgstr "إعادة تعيين كل الاعدادات"
+
+#: includes/class-arabic-webfonts-customizer-settings.php:781
+msgid ""
+"When click to reset, All settings will be lost and replaced with default "
+"settings!"
+msgstr ""
+"عند الضغط على إعادة تعيين. ستفقد كل الاعدادات وسيتم الرجوع الى الاعدادات "
+"الافتراضية!"
+
+#: includes/class-arabic-webfonts-post-type.php:60
+msgid "Arabic Webfonts Controls"
+msgstr "عناصر التحكم"
+
+#: includes/class-arabic-webfonts-post-type.php:61
+msgid "Arabic Webfonts Control"
+msgstr "عناصر التحكم"
+
+#: includes/class-arabic-webfonts-post-type.php:62
+#: includes/class-arabic-webfonts-post-type.php:63
+msgid "Add New Control"
+msgstr "أضف عنصر جديد"
+
+#: includes/class-arabic-webfonts-post-type.php:64
+msgid "Edit Control"
+msgstr "تعديل عنصر التحكم"
+
+#: includes/class-arabic-webfonts-post-type.php:65
+msgid "New Control"
+msgstr "عنصر تحكم جديد"
+
+#: includes/class-arabic-webfonts-post-type.php:66
+msgid "All Controls"
+msgstr "عناصر التحكم"
+
+#: includes/class-arabic-webfonts-post-type.php:67
+msgid "No Controls found"
+msgstr "لا يوجد عناصر تحكم مضافة"
+
+#: includes/class-arabic-webfonts-post-type.php:104
+#: includes/class-arabic-webfonts-post-type.php:107
+msgid "Control updated. Please visit the Customizer to manage this control."
+msgstr ""
+"تم تحديث عنصر التحكم. قم بالذهاب الى رابط تخصيص لبدء تغيير خصائص العنصر."
+
+#: includes/class-arabic-webfonts-post-type.php:105
+msgid "Control updated."
+msgstr "تم تحديث عنصر التحكم."
+
+#: includes/class-arabic-webfonts-post-type.php:106
+msgid "Control deleted."
+msgstr "تم حذف عنصر التحكم."
+
+#: includes/class-arabic-webfonts-post-type.php:110
+msgid "Control published. Please visit the Customizer to manage this control."
+msgstr ""
+"تم اضافة عنصر التحكم. قم بالذهاب الى رابط تخصيص لبدء تغيير خصائص العنصر."
+
+#: includes/class-arabic-webfonts-post-type.php:111
+msgid "Control saved. Please visit the Customizer to manage this control."
+msgstr "تم حفظ عنصر التحكم. قم بالذهاب الى رابط تخصيص لبدء تغيير خصائص العنصر."
+
+#: includes/class-arabic-webfonts-post-type.php:112
+msgid "Control submitted. Please visit the Customizer to manage this control."
+msgstr ""
+"تم اضافة عنصر التحكم. قم بالذهاب الى رابط تخصيص لبدء تغيير خصائص العنصر."
+
+#: includes/class-arabic-webfonts-post-type.php:154
+msgid "Delete this control permanently"
+msgstr "حذف هذا العنصر بشكل دائم"
+
+#: includes/class-arabic-webfonts-post-type.php:154
+msgid "Delete Permanently"
+msgstr "حذف بشكل دائم"
+
+#: includes/class-arabic-webfonts-post-type.php:224
+#, php-format
+msgid "Control permanently deleted."
+msgid_plural "%s Controls permanently deleted."
+msgstr[0] "تم حذف عنصر التحكم بشكل دائم."
+msgstr[1] "تم حذف عنصر التحكم بشكل دائم."
+msgstr[2] "تم حذف عناصر التحكم بشكل دائم."
+msgstr[3] "تم حذف عناصر التحكم بشكل دائم."
+msgstr[4] "تم حذف عناصر التحكم بشكل دائم."
+msgstr[5] "تم حذف عناصر التحكم بشكل دائم."
+
+#: includes/class-arabic-webfonts-post-type.php:253
+msgid "CSS Selectors"
+msgstr "عناصر الـ CSS الخاصة"
+
+#: includes/class-arabic-webfonts-post-type.php:304
+msgid ""
+"Type each CSS selector that you would like this font control to manage in "
+"the box below. <br /> Example : .some-class, #some-id"
+msgstr ""
+"قم باضافة عناصر الـ CSS الخاصة التى تريد ان تتحكم فيها, يمكنك الحصول على تلك "
+"العناصر من ملف style‪.‬css فى القالب المستخدم. <br /> مثال : .some-class, "
+"#some-id"
+
+#: includes/class-arabic-webfonts.php:82
+#, php-format
+msgid ""
+"This plugin can not be activated because it requires a WordPress version at "
+"least %1$s (or later). Please go to Dashboard &#9656; Updates to get the "
+"latest version of WordPress."
+msgstr ""
+"لا يمكن تفعيل الاضافة لأنها تتطلب اصدار ووردبريس على الأقل %1$s او أعلى. "
+"برجاء الذهاب الى الرئيسية &#9666; تحديثات للحصول على أخر اصدار من الووردبريس."
+
+#: includes/class-arabic-webfonts.php:85
+msgid "go back"
+msgstr "عودة للخلف"
+
+#: includes/class-arabic-webfonts.php:347
+msgid ""
+"Click OK to reset. All settings will be lost and replaced with default "
+"settings!"
+msgstr ""
+"اضغط OK لإعادة التعيين. ستفقد كل الاعدادات وسيتم الرجوع الى الاعدادات "
+"الافتراضية!"

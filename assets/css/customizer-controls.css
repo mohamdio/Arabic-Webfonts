@@ -1,0 +1,47 @@
+/**
+ * This file working for customizer controls.
+ */
+.awf-reset-button {
+    margin-top: 12px !important;   
+}
+
+.awf-fields-group {
+    border:1px solid #EEE;
+    padding:6px 10px;
+    background:#F5F5F5;
+    position: relative;
+}
+
+.awf-fields-group:after {
+    content: '\f140';
+    border: none;
+    background: 0 0;
+    font: 400 20px/1 dashicons;
+    speak: none;
+    display: block;
+    padding: 0;
+    text-indent: 0;
+    text-align: center;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none!important;
+    position: absolute;
+    z-index: 1;
+    float: right;
+    right: 5px;
+    top: 8px;
+}
+
+.awf-fields-group.open:after {
+    content: '\f142';
+}
+
+body.rtl .awf-fields-group:after {
+    right: inherit;
+    left: 5px;
+}
+
+#accordion-panel-awf_arabic_webfonts .customize-control select {
+    width: 100%;
+}
