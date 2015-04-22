@@ -532,173 +532,205 @@ class AWF_Arabic_Webfonts {
         <style id='<?php echo $this->plugin_name; ?>' type='text/css'>
            <?php
            // body styles
-           if( empty( get_theme_mod('awf_body_font_family') ) && empty( get_theme_mod('awf_body_font_size') ) && empty( get_theme_mod('awf_body_line_height') ) ) {
+           $body_font_family = get_theme_mod('awf_body_font_family');
+           $body_font_size = get_theme_mod('awf_body_font_size');
+           $body_line_height = get_theme_mod('awf_body_line_height');
+           
+           if( empty( $body_font_family ) && empty( $body_font_size ) && empty( $body_line_height ) ) {
                
            } else {
            ?>
            body, header, footer, .content, .sidebar { 
-           <?php if ( get_theme_mod('awf_body_font_family') != '' ) { ?>   
-           font-family: '<?php echo get_theme_mod('awf_body_font_family'); ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $body_font_family != '' ) { ?>   
+           font-family: '<?php echo $body_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_body_font_size') != '' ) { ?>   
-           font-size: <?php echo get_theme_mod('awf_body_font_size'); ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $body_font_size != '' ) { ?>   
+           font-size: <?php echo $body_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_body_line_height') != '' ) { ?>   
-           line-height: <?php echo get_theme_mod('awf_body_line_height'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $body_line_height != '' ) { ?>   
+           line-height: <?php echo $body_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?> 
            }
            <?php } ?>
            <?php
            // paragraphs styles
-           if( empty( get_theme_mod('awf_paragraphs_font_family') ) && empty( get_theme_mod('awf_paragraphs_font_size') ) 
-               && empty( get_theme_mod('awf_paragraphs_line_height') ) && empty( get_theme_mod('awf_paragraphs_text_decoration') ) ) {
+           $paragraphs_font_family = get_theme_mod('awf_paragraphs_font_family');
+           $paragraphs_font_size = get_theme_mod('awf_paragraphs_font_size');
+           $paragraphs_line_height = get_theme_mod('awf_paragraphs_line_height');
+           $paragraphs_text_decoration = get_theme_mod('awf_paragraphs_text_decoration');
+           
+           if( empty( $paragraphs_font_family ) && empty( $paragraphs_font_size ) && empty( $paragraphs_line_height ) && empty( $paragraphs_text_decoration ) ) {
                
            } else {
            ?>
            p { 
-           <?php if ( get_theme_mod('awf_paragraphs_font_family') != '' ) { ?>   
-           font-family: '<?php echo get_theme_mod('awf_paragraphs_font_family'); ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $paragraphs_font_family != '' ) { ?>   
+           font-family: '<?php echo $paragraphs_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_paragraphs_font_size') != '' ) { ?>   
-           font-size: <?php echo get_theme_mod('awf_paragraphs_font_size'); ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $paragraphs_font_size != '' ) { ?>   
+           font-size: <?php echo $paragraphs_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_paragraphs_line_height') != '' ) { ?>   
-           line-height: <?php echo get_theme_mod('awf_paragraphs_line_height'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $paragraphs_line_height != '' ) { ?>   
+           line-height: <?php echo $paragraphs_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_paragraphs_text_decoration') != '' ) { ?>   
-           text-decoration: <?php echo get_theme_mod('awf_paragraphs_text_decoration'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $paragraphs_text_decoration != '' ) { ?>   
+           text-decoration: <?php echo $paragraphs_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?> 
            }
            <?php } ?>
            <?php
            // h1 styles
-           if( empty( get_theme_mod('awf_h1_font_family') ) && empty( get_theme_mod('awf_h1_font_size') )
-               && empty( get_theme_mod('awf_h1_line_height') ) && empty( get_theme_mod('awf_h1_text_decoration') ) ) {
+           $h1_font_family = get_theme_mod('awf_h1_font_family');
+           $h1_font_size = get_theme_mod('awf_h1_font_size');
+           $h1_line_height = get_theme_mod('awf_h1_line_height');
+           $h1_text_decoration = get_theme_mod('awf_h1_text_decoration');
+        
+           if( empty( $h1_font_family ) && empty( $h1_font_size ) && empty( $h1_line_height ) && empty( $h1_text_decoration ) ) {
                
            } else {
            ?>
            h1 { 
-           <?php if ( get_theme_mod('awf_h1_font_family') != '' ) { ?>   
-           font-family: '<?php echo get_theme_mod('awf_h1_font_family'); ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h1_font_family != '' ) { ?>   
+           font-family: '<?php echo $h1_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h1_font_size') != '' ) { ?>   
-           font-size: <?php echo get_theme_mod('awf_h1_font_size'); ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h1_font_size != '' ) { ?>   
+           font-size: <?php echo $h1_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h1_line_height') != '' ) { ?>   
-           line-height: <?php echo get_theme_mod('awf_h1_line_height'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h1_line_height != '' ) { ?>   
+           line-height: <?php echo $h1_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h1_text_decoration') != '' ) { ?>   
-           text-decoration: <?php echo get_theme_mod('awf_h1_text_decoration'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h1_text_decoration != '' ) { ?>   
+           text-decoration: <?php echo $h1_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?> 
            }
            <?php } ?>
            <?php
            // h2 styles
-           if( empty( get_theme_mod('awf_h2_font_family') ) && empty( get_theme_mod('awf_h2_font_size') )
-               && empty( get_theme_mod('awf_h2_line_height') ) && empty( get_theme_mod('awf_h2_text_decoration') ) ) {
+           $h2_font_family = get_theme_mod('awf_h2_font_family');
+           $h2_font_size = get_theme_mod('awf_h2_font_size');
+           $h2_line_height = get_theme_mod('awf_h2_line_height');
+           $h2_text_decoration = get_theme_mod('awf_h2_text_decoration');
+        
+           if( empty( $h2_font_family ) && empty( $h2_font_size ) && empty( $h2_line_height ) && empty( $h2_text_decoration ) ) {
                
            } else {
            ?>
            h2 { 
-           <?php if ( get_theme_mod('awf_h2_font_family') != '' ) { ?>   
-           font-family: '<?php echo get_theme_mod('awf_h2_font_family'); ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h2_font_family != '' ) { ?>   
+           font-family: '<?php echo $h2_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h2_font_size') != '' ) { ?>   
-           font-size: <?php echo get_theme_mod('awf_h2_font_size'); ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h2_font_size != '' ) { ?>   
+           font-size: <?php echo $h2_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h2_line_height') != '' ) { ?>   
-           line-height: <?php echo get_theme_mod('awf_h2_line_height'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h2_line_height != '' ) { ?>   
+           line-height: <?php echo $h2_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h2_text_decoration') != '' ) { ?>   
-           text-decoration: <?php echo get_theme_mod('awf_h2_text_decoration'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h2_text_decoration != '' ) { ?>   
+           text-decoration: <?php echo $h2_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?> 
            }
            <?php } ?>
            <?php
            // h3 styles
-           if( empty( get_theme_mod('awf_h3_font_family') ) && empty( get_theme_mod('awf_h3_font_size') )
-               && empty( get_theme_mod('awf_h3_line_height') ) && empty( get_theme_mod('awf_h3_text_decoration') ) ) {
+           $h3_font_family = get_theme_mod('awf_h3_font_family');
+           $h3_font_size = get_theme_mod('awf_h3_font_size');
+           $h3_line_height = get_theme_mod('awf_h3_line_height');
+           $h3_text_decoration = get_theme_mod('awf_h3_text_decoration');
+        
+           if( empty( $h3_font_family ) && empty( $h3_font_size ) && empty( $h3_line_height ) && empty( $h3_text_decoration ) ) {
                
            } else {
            ?>
            h3 { 
-           <?php if ( get_theme_mod('awf_h3_font_family') != '' ) { ?>   
-           font-family: '<?php echo get_theme_mod('awf_h3_font_family'); ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h3_font_family != '' ) { ?>   
+           font-family: '<?php echo $h3_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h3_font_size') != '' ) { ?>   
-           font-size: <?php echo get_theme_mod('awf_h3_font_size'); ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h3_font_size != '' ) { ?>   
+           font-size: <?php echo $h3_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h3_line_height') != '' ) { ?>   
-           line-height: <?php echo get_theme_mod('awf_h3_line_height'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h3_line_height != '' ) { ?>   
+           line-height: <?php echo $h3_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h3_text_decoration') != '' ) { ?>   
-           text-decoration: <?php echo get_theme_mod('awf_h3_text_decoration'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h3_text_decoration != '' ) { ?>   
+           text-decoration: <?php echo $h3_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?> 
            }
            <?php } ?>
            <?php
            // h4 styles
-           if( empty( get_theme_mod('awf_h4_font_family') ) && empty( get_theme_mod('awf_h4_font_size') )
-               && empty( get_theme_mod('awf_h4_line_height') ) && empty( get_theme_mod('awf_h4_text_decoration') ) ) {
+           $h4_font_family = get_theme_mod('awf_h4_font_family');
+           $h4_font_size = get_theme_mod('awf_h4_font_size');
+           $h4_line_height = get_theme_mod('awf_h4_line_height');
+           $h4_text_decoration = get_theme_mod('awf_h4_text_decoration');
+        
+           if( empty( $h4_font_family ) && empty( $h4_font_size ) && empty( $h4_line_height ) && empty( $h4_text_decoration ) ) {
                
            } else {
            ?>
            h4 { 
-           <?php if ( get_theme_mod('awf_h4_font_family') != '' ) { ?>   
-           font-family: '<?php echo get_theme_mod('awf_h4_font_family'); ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h4_font_family != '' ) { ?>   
+           font-family: '<?php echo $h4_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h4_font_size') != '' ) { ?>   
-           font-size: <?php echo get_theme_mod('awf_h4_font_size'); ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h4_font_size != '' ) { ?>   
+           font-size: <?php echo $h4_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h4_line_height') != '' ) { ?>   
-           line-height: <?php echo get_theme_mod('awf_h4_line_height'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h4_line_height != '' ) { ?>   
+           line-height: <?php echo $h4_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h4_text_decoration') != '' ) { ?>   
-           text-decoration: <?php echo get_theme_mod('awf_h4_text_decoration'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h4_text_decoration != '' ) { ?>   
+           text-decoration: <?php echo $h4_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?> 
            }
            <?php } ?>
            <?php
            // h5 styles
-           if( empty( get_theme_mod('awf_h5_font_family') ) && empty( get_theme_mod('awf_h5_font_size') )
-               && empty( get_theme_mod('awf_h5_line_height') ) && empty( get_theme_mod('awf_h5_text_decoration') ) ) {
+           $h5_font_family = get_theme_mod('awf_h5_font_family');
+           $h5_font_size = get_theme_mod('awf_h5_font_size');
+           $h5_line_height = get_theme_mod('awf_h5_line_height');
+           $h5_text_decoration = get_theme_mod('awf_h5_text_decoration');
+        
+           if( empty( $h5_font_family ) && empty( $h5_font_size ) && empty( $h5_line_height ) && empty( $h5_text_decoration ) ) {
                
            } else {
            ?>
            h5 { 
-           <?php if ( get_theme_mod('awf_h5_font_family') != '' ) { ?>   
-           font-family: '<?php echo get_theme_mod('awf_h5_font_family'); ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h5_font_family != '' ) { ?>   
+           font-family: '<?php echo $h5_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h5_font_size') != '' ) { ?>   
-           font-size: <?php echo get_theme_mod('awf_h5_font_size'); ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h5_font_size != '' ) { ?>   
+           font-size: <?php echo $h5_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h5_line_height') != '' ) { ?>   
-           line-height: <?php echo get_theme_mod('awf_h5_line_height'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h5_line_height != '' ) { ?>   
+           line-height: <?php echo $h5_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h5_text_decoration') != '' ) { ?>   
-           text-decoration: <?php echo get_theme_mod('awf_h5_text_decoration'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h5_text_decoration != '' ) { ?>   
+           text-decoration: <?php echo $h5_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?> 
            }
            <?php } ?>
            <?php
            // h6 styles
-           if( empty( get_theme_mod('awf_h6_font_family') ) && empty( get_theme_mod('awf_h6_font_size') )
-               && empty( get_theme_mod('awf_h6_line_height') ) && empty( get_theme_mod('awf_h6_text_decoration') ) ) {
+           $h6_font_family = get_theme_mod('awf_h6_font_family');
+           $h6_font_size = get_theme_mod('awf_h6_font_size');
+           $h6_line_height = get_theme_mod('awf_h6_line_height');
+           $h6_text_decoration = get_theme_mod('awf_h6_text_decoration');
+        
+           if( empty( $h6_font_family ) && empty( $h6_font_size ) && empty( $h6_line_height ) && empty( $h6_text_decoration ) ) {
                
            } else {
            ?>
            h6 { 
-           <?php if ( get_theme_mod('awf_h6_font_family') != '' ) { ?>   
-           font-family: '<?php echo get_theme_mod('awf_h6_font_family'); ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h6_font_family != '' ) { ?>   
+           font-family: '<?php echo $h6_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h6_font_size') != '' ) { ?>   
-           font-size: <?php echo get_theme_mod('awf_h6_font_size'); ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h6_font_size != '' ) { ?>   
+           font-size: <?php echo $h6_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h6_line_height') != '' ) { ?>   
-           line-height: <?php echo get_theme_mod('awf_h6_line_height'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h6_line_height != '' ) { ?>   
+           line-height: <?php echo $h6_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( get_theme_mod('awf_h6_text_decoration') != '' ) { ?>   
-           text-decoration: <?php echo get_theme_mod('awf_h6_text_decoration'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+           <?php if ( $h6_text_decoration != '' ) { ?>   
+           text-decoration: <?php echo $h6_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?> 
            }
            <?php } ?>
@@ -711,12 +743,13 @@ class AWF_Arabic_Webfonts {
 
                     // get css selectors
                     $css_selectors = get_post_meta( $id, '_awf_css_selectors', true );
+                    
+                    $id_font_family = get_theme_mod('awf_'. $id .'_font_family');
+                    $id_font_size = get_theme_mod('awf_'. $id .'_font_size');
+                    $id_line_height = get_theme_mod('awf_'. $id .'_line_height');
+                    $id_text_decoration = get_theme_mod('awf_'. $id .'_text_decoration');
 
-                    if( empty( get_theme_mod('awf_'. $id .'_font_family') )
-                        && empty( get_theme_mod('awf_'. $id .'_font_size') )
-                        && empty( get_theme_mod('awf_'. $id .'_line_height') )
-                        && empty( get_theme_mod('awf_'. $id .'_text_decoration') )
-                    ) {
+                    if( empty( $id_font_family ) && empty( $id_font_size ) && empty( $id_line_height ) && empty( $id_text_decoration ) ) {
                         
                     } else {
 
@@ -724,17 +757,17 @@ class AWF_Arabic_Webfonts {
                 ?>
 
                             <?php echo $css_selectors; ?> {
-                                <?php if ( get_theme_mod('awf_'. $id .'_font_family') != '' ) { ?>   
-                                font-family: '<?php echo get_theme_mod('awf_'. $id .'_font_family'); ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+                                <?php if ( $id_font_family != '' ) { ?>   
+                                font-family: '<?php echo $id_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
                                 <?php } ?>
-                                <?php if ( get_theme_mod('awf_'. $id .'_font_size') != '' ) { ?>   
-                                font-size: <?php echo get_theme_mod('awf_'. $id .'_font_size'); ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+                                <?php if ( $id_font_size != '' ) { ?>   
+                                font-size: <?php echo $id_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
                                 <?php } ?>
-                                <?php if ( get_theme_mod('awf_'. $id .'_line_height') != '' ) { ?>   
-                                line-height: <?php echo get_theme_mod('awf_'. $id .'_line_height'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+                                <?php if ( $id_line_height != '' ) { ?>   
+                                line-height: <?php echo $id_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
                                 <?php } ?>
-                                <?php if ( get_theme_mod('awf_'. $id .'_text_decoration') != '' ) { ?>   
-                                text-decoration: <?php echo get_theme_mod('awf_'. $id .'_text_decoration'); ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
+                                <?php if ( $id_text_decoration != '' ) { ?>   
+                                text-decoration: <?php echo $id_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
                                 <?php } ?> 
                             }
 
