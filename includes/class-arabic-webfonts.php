@@ -209,7 +209,10 @@ class AWF_Arabic_Webfonts {
             }
             
             
-            if( !empty($body_font.$paragraphs_font.$h1_font.$h2_font.$h3_font.$h4_font.$h5_font.$h6_font.$custom_controls_fonts_display) ) {
+            if( empty($body_font) && empty($paragraphs_font) && empty($h1_font) && empty($h2_font) && empty($h3_font)
+                && empty($h4_font) && empty($h5_font) && empty($h6_font) && empty($custom_controls_fonts_display) ) {
+                
+            } else {
                 wp_enqueue_style(
                     $this->plugin_name,
                     '//www.fontstatic.com/f='.$body_font.$paragraphs_font.$h1_font.$h2_font.$h3_font.$h4_font.$h5_font.$h6_font.$custom_controls_fonts_display,
@@ -529,7 +532,9 @@ class AWF_Arabic_Webfonts {
         <style id='<?php echo $this->plugin_name; ?>' type='text/css'>
            <?php
            // body styles
-           if( !empty( get_theme_mod('awf_body_font_family').get_theme_mod('awf_body_font_size').get_theme_mod('awf_body_line_height') ) ) {
+           if( empty( get_theme_mod('awf_body_font_family') ) && empty( get_theme_mod('awf_body_font_size') ) && empty( get_theme_mod('awf_body_line_height') ) ) {
+               
+           } else {
            ?>
            body, header, footer, .content, .sidebar { 
            <?php if ( get_theme_mod('awf_body_font_family') != '' ) { ?>   
@@ -545,7 +550,10 @@ class AWF_Arabic_Webfonts {
            <?php } ?>
            <?php
            // paragraphs styles
-           if( !empty( get_theme_mod('awf_paragraphs_font_family').get_theme_mod('awf_paragraphs_font_size').get_theme_mod('awf_paragraphs_line_height').get_theme_mod('awf_paragraphs_text_decoration') ) ) {
+           if( empty( get_theme_mod('awf_paragraphs_font_family') ) && empty( get_theme_mod('awf_paragraphs_font_size') ) 
+               && empty( get_theme_mod('awf_paragraphs_line_height') ) && empty( get_theme_mod('awf_paragraphs_text_decoration') ) ) {
+               
+           } else {
            ?>
            p { 
            <?php if ( get_theme_mod('awf_paragraphs_font_family') != '' ) { ?>   
@@ -564,7 +572,10 @@ class AWF_Arabic_Webfonts {
            <?php } ?>
            <?php
            // h1 styles
-           if( !empty( get_theme_mod('awf_h1_font_family').get_theme_mod('awf_h1_font_size').get_theme_mod('awf_h1_line_height').get_theme_mod('awf_h1_text_decoration') ) ) {
+           if( empty( get_theme_mod('awf_h1_font_family') ) && empty( get_theme_mod('awf_h1_font_size') )
+               && empty( get_theme_mod('awf_h1_line_height') ) && empty( get_theme_mod('awf_h1_text_decoration') ) ) {
+               
+           } else {
            ?>
            h1 { 
            <?php if ( get_theme_mod('awf_h1_font_family') != '' ) { ?>   
@@ -583,7 +594,10 @@ class AWF_Arabic_Webfonts {
            <?php } ?>
            <?php
            // h2 styles
-           if( !empty( get_theme_mod('awf_h2_font_family').get_theme_mod('awf_h2_font_size').get_theme_mod('awf_h2_line_height').get_theme_mod('awf_h2_text_decoration') ) ) {
+           if( empty( get_theme_mod('awf_h2_font_family') ) && empty( get_theme_mod('awf_h2_font_size') )
+               && empty( get_theme_mod('awf_h2_line_height') ) && empty( get_theme_mod('awf_h2_text_decoration') ) ) {
+               
+           } else {
            ?>
            h2 { 
            <?php if ( get_theme_mod('awf_h2_font_family') != '' ) { ?>   
@@ -602,7 +616,10 @@ class AWF_Arabic_Webfonts {
            <?php } ?>
            <?php
            // h3 styles
-           if( !empty( get_theme_mod('awf_h3_font_family').get_theme_mod('awf_h3_font_size').get_theme_mod('awf_h3_line_height').get_theme_mod('awf_h3_text_decoration') ) ) {
+           if( empty( get_theme_mod('awf_h3_font_family') ) && empty( get_theme_mod('awf_h3_font_size') )
+               && empty( get_theme_mod('awf_h3_line_height') ) && empty( get_theme_mod('awf_h3_text_decoration') ) ) {
+               
+           } else {
            ?>
            h3 { 
            <?php if ( get_theme_mod('awf_h3_font_family') != '' ) { ?>   
@@ -621,7 +638,10 @@ class AWF_Arabic_Webfonts {
            <?php } ?>
            <?php
            // h4 styles
-           if( !empty( get_theme_mod('awf_h4_font_family').get_theme_mod('awf_h4_font_size').get_theme_mod('awf_h4_line_height').get_theme_mod('awf_h4_text_decoration') ) ) {
+           if( empty( get_theme_mod('awf_h4_font_family') ) && empty( get_theme_mod('awf_h4_font_size') )
+               && empty( get_theme_mod('awf_h4_line_height') ) && empty( get_theme_mod('awf_h4_text_decoration') ) ) {
+               
+           } else {
            ?>
            h4 { 
            <?php if ( get_theme_mod('awf_h4_font_family') != '' ) { ?>   
@@ -640,7 +660,10 @@ class AWF_Arabic_Webfonts {
            <?php } ?>
            <?php
            // h5 styles
-           if( !empty( get_theme_mod('awf_h5_font_family').get_theme_mod('awf_h5_font_size').get_theme_mod('awf_h5_line_height').get_theme_mod('awf_h5_text_decoration') ) ) {
+           if( empty( get_theme_mod('awf_h5_font_family') ) && empty( get_theme_mod('awf_h5_font_size') )
+               && empty( get_theme_mod('awf_h5_line_height') ) && empty( get_theme_mod('awf_h5_text_decoration') ) ) {
+               
+           } else {
            ?>
            h5 { 
            <?php if ( get_theme_mod('awf_h5_font_family') != '' ) { ?>   
@@ -659,7 +682,10 @@ class AWF_Arabic_Webfonts {
            <?php } ?>
            <?php
            // h6 styles
-           if( !empty( get_theme_mod('awf_h6_font_family').get_theme_mod('awf_h6_font_size').get_theme_mod('awf_h6_line_height').get_theme_mod('awf_h6_text_decoration') ) ) {
+           if( empty( get_theme_mod('awf_h6_font_family') ) && empty( get_theme_mod('awf_h6_font_size') )
+               && empty( get_theme_mod('awf_h6_line_height') ) && empty( get_theme_mod('awf_h6_text_decoration') ) ) {
+               
+           } else {
            ?>
            h6 { 
            <?php if ( get_theme_mod('awf_h6_font_family') != '' ) { ?>   
@@ -686,12 +712,13 @@ class AWF_Arabic_Webfonts {
                     // get css selectors
                     $css_selectors = get_post_meta( $id, '_awf_css_selectors', true );
 
-                    if( !empty( 
-                        get_theme_mod('awf_'. $id .'_font_family').
-                        get_theme_mod('awf_'. $id .'_font_size').
-                        get_theme_mod('awf_'. $id .'_line_height').
-                        get_theme_mod('awf_'. $id .'_text_decoration') 
-                    ) ) {
+                    if( empty( get_theme_mod('awf_'. $id .'_font_family') )
+                        && empty( get_theme_mod('awf_'. $id .'_font_size') )
+                        && empty( get_theme_mod('awf_'. $id .'_line_height') )
+                        && empty( get_theme_mod('awf_'. $id .'_text_decoration') )
+                    ) {
+                        
+                    } else {
 
                         if( !empty( $css_selectors ) ) {
                 ?>
