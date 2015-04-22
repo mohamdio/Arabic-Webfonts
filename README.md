@@ -1,10 +1,10 @@
 # Arabic-Webfonts
 WordPress plugin which allow you to add Arabic fonts easily to any theme without coding using WordPress Customizer.
 
-Requires at least: 4.0
-Tested up to: 4.1.2
-Stable tag: 1.0
-License: GPLv2 or later
+* Requires at least: 4.0
+* Tested up to: 4.1.2
+* Stable tag: 1.0
+* License: GPLv2 or later
 
 == Description ==
 
