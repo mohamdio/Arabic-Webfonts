@@ -75,7 +75,7 @@ class AWF_Post_Type {
             'public'              => false,
             'show_ui'             => true,
             'show_in_menu'        => true,
-            'menu_position'       => 99,
+            'menu_position'       => 80,
             'menu_icon'           => 'dashicons-menu',
             'show_in_nav_menus'   => false,
             'publicly_queryable'  => false,
