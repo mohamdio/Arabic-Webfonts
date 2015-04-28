@@ -165,7 +165,7 @@ class AWF_Arabic_Webfonts {
 
             wp_enqueue_style(
                 $this->plugin_name .'-live',
-                '//www.fontstatic.com/f=lateef,Noto-Urdu,Thabit,b-sepideh,boutros-ads,stc,diwanltr,barabics,btehran,fanni,kufi,jooza,hama,DroidKufi-Regular,amiri,amiri-quran,amiri-slanted,amiri-bold,Old-Antic-Bold,farsi-simple-bold,diwani-bent,ah-moharram-bold,b-hamid,al-gemah-alhoda,old-antic-decorative,b-compset,decotype-thuluth,hamada,basim-marah,flat-jooza',
+                '//www.fontstatic.com/f=b-sepideh,boutros-ads,stc,diwanltr,barabics,btehran,fanni,kufi,jooza,hama,DroidKufi-Regular,amiri,amiri-quran,amiri-slanted,amiri-bold,Old-Antic-Bold,farsi-simple-bold,diwani-bent,ah-moharram-bold,b-hamid,al-gemah-alhoda,old-antic-decorative,b-compset,decotype-thuluth,hamada,basim-marah,flat-jooza',
                 array(),
                 null,
                 'all'
@@ -213,24 +213,13 @@ class AWF_Arabic_Webfonts {
                 && empty($h4_font) && empty($h5_font) && empty($h6_font) && empty($custom_controls_fonts_display) ) {
                 
             } else {
-                
-                // check if font type is duplicated
-                $default_settings_fonts_types = array ( $body_font, $paragraphs_font, $h1_font, $h2_font, $h3_font, $h4_font, $h5_font, $h6_font );
-                if( $this->get_custom_controls_ids() ) {
-                    $all_fonts_types = array_merge($default_settings_fonts_types, $custom_controls_fonts);
-                    $final_fonts_types = implode('',array_unique($all_fonts_types));
-                } else {
-                    $final_fonts_types = implode('',array_unique($default_settings_fonts_types));
-                }
-                
                 wp_enqueue_style(
                     $this->plugin_name,
-                    '//www.fontstatic.com/f='.$final_fonts_types,
+                    '//www.fontstatic.com/f='.$body_font.$paragraphs_font.$h1_font.$h2_font.$h3_font.$h4_font.$h5_font.$h6_font.$custom_controls_fonts_display,
                     array(),
                     null,
                     'all'
                 );
-                
             }
         }
 
