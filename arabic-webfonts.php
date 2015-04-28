@@ -4,7 +4,7 @@
  * Plugin Name: Arabic Webfonts
  * Plugin URI: http://plugins.jozoor.com/arabic-webfonts/
  * Description: An easy way to add Arabic fonts to any theme without coding using WordPress Customizer.
- * Version: 1.0
+ * Version: 1.1
  * Author: Jozoor Team
  * Author URI: http://plugins.jozoor.com/
  * License: GPL2
