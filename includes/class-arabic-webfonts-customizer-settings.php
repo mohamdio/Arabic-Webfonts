@@ -53,6 +53,9 @@ class AWF_Customizer_Settings {
         
        $fonts = array(
            ''                     => '— '.__( 'Select Font', $this->textdomain ).' —',
+           'lateef'               => 'لطيف',
+           'Noto-Urdu'            => 'نوتو أوردو',
+           'Thabit'               => 'ثابت',
            'b-sepideh'            => 'Sepideh',
            'boutros-ads'          => 'بطرس',
            'stc'                  => 'STC',
