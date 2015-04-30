@@ -48,13 +48,23 @@ class AWF_Customizer {
     protected $capability;
     
     /**
+	 * All fonts from fontface.me API.
+	 *
+	 * @since    1.2
+	 * @access   protected
+	 * @var      array    $fonts    All fonts from fontface.me API.
+	 */
+	protected $fonts = false;
+    
+    /**
 	 * Define the customizer api functionality.
 	 *
 	 * @since    1.0
 	 */
-    public function __construct( $plugin_name ) {
+    public function __construct( $plugin_name, $fonts ) {
        
         $this->plugin_name = $plugin_name;
+        $this->fonts = $fonts;
         
         $this->type        = 'theme_mod';
         $this->transport   = 'postMessage';
@@ -73,7 +83,7 @@ class AWF_Customizer {
     private function get_customizer_settings() {
         
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-arabic-webfonts-customizer-settings.php';
-        $settings = new AWF_Customizer_Settings( $this->plugin_name );
+        $settings = new AWF_Customizer_Settings( $this->plugin_name, $this->fonts );
         return $settings->settings_fields();
         
     }

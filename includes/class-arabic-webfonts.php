@@ -34,6 +34,14 @@ class AWF_Arabic_Webfonts {
 	 * @var      string    $version    The current version of the plugin.
 	 */
 	protected $version;
+    /**
+	 * All fonts from fontface.me API.
+	 *
+	 * @since    1.2
+	 * @access   protected
+	 * @var      array    $fonts    All fonts from fontface.me API.
+	 */
+	protected $fonts = false;
 
 
     /**
@@ -44,7 +52,8 @@ class AWF_Arabic_Webfonts {
     public function __construct() {
 
         $this->plugin_name = 'arabic-webfonts';
-		$this->version = '1.0';
+		$this->version = '1.2';
+        $this->fonts = $this->get_fonts();
         
         $this->load_customizer();
         $this->get_post_type();
@@ -100,6 +109,55 @@ class AWF_Arabic_Webfonts {
     }
     
     /**
+	 * Get all fonts from fontface.me API.
+	 *
+	 * @since    1.2
+	 * @access   public
+	 */
+    public function get_fonts() {
+        
+        // convert arabic text in json_decode
+        @header('Content-Type: text/html; charset=utf-8');
+        
+        // get fonts file content
+        $fontsFile = plugin_dir_path( dirname( __FILE__ ) ) . 'assets/cache/fonts.txt';
+        
+        // total time the file will be cached in seconds, set to 2 days
+        $cachetime = 86400 * 2;
+        
+        // check if file exist & cache time not expired
+        if( file_exists($fontsFile) && $cachetime < filemtime($fontsFile) ) {
+            
+            $content = json_decode( file_get_contents($fontsFile), true);
+            
+        } else {
+            
+            // get all fonts from API json content
+            $fontfaceApi = 'http://fontface.me/font/all';
+            $fontsContent = wp_remote_get( $fontfaceApi, array('sslverify' => false) );
+            
+            // check if it is not a valid request
+            if( is_wp_error( $fontsContent ) ) {
+               
+                $content = json_decode( file_get_contents($fontsFile), true);
+                
+            } else {
+            
+                $fp = fopen($fontsFile, 'w');
+                fwrite($fp, $fontsContent['body']);
+                fclose($fp);
+
+                $content = json_decode($fontsContent['body'], true);
+                
+            }
+            
+        }
+        
+        return $content;
+         
+    }
+    
+    /**
 	 * Load the customizer api.
 	 *
 	 * @since    1.0
@@ -108,7 +166,7 @@ class AWF_Arabic_Webfonts {
     private function load_customizer() {
 
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-arabic-webfonts-customizer.php';
-        new AWF_Customizer( $this->plugin_name );
+        new AWF_Customizer( $this->plugin_name, $this->fonts );
 
     }
     
@@ -162,10 +220,22 @@ class AWF_Arabic_Webfonts {
 
         // check if customize preview is active
         if ( is_customize_preview() ) {
+            
+            /**
+             * Get all fonts
+             * this updated to use fonts API
+             * 
+             * @since    1.2
+             */
+            $all_fonts = array();
+            foreach ($this->get_fonts() as $font) {
+                $all_fonts[] = $font['permalink'] . ',';
+            }
+            $all_fonts_display = implode('',$all_fonts);
 
             wp_enqueue_style(
                 $this->plugin_name .'-live',
-                '//www.fontstatic.com/f=lateef,Noto-Urdu,Thabit,b-sepideh,boutros-ads,stc,diwanltr,barabics,btehran,fanni,kufi,jooza,hama,DroidKufi-Regular,amiri,amiri-quran,amiri-slanted,amiri-bold,Old-Antic-Bold,farsi-simple-bold,diwani-bent,ah-moharram-bold,b-hamid,al-gemah-alhoda,old-antic-decorative,b-compset,decotype-thuluth,hamada,basim-marah,flat-jooza',
+                '//www.fontstatic.com/f='.$all_fonts_display,
                 array(),
                 null,
                 'all'
@@ -538,7 +608,7 @@ class AWF_Arabic_Webfonts {
 	 */
     public function header_output() {
 
-        echo '<!-- Start '. $this->plugin_name. ' styles -->';
+        echo '<!-- Start '. $this->plugin_name. ' v'. $this->version .' styles -->';
         ?>
         <style id='<?php echo $this->plugin_name; ?>' type='text/css'>
            <?php

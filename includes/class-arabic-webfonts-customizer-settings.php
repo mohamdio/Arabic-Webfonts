@@ -32,14 +32,24 @@ class AWF_Customizer_Settings {
 	protected $prefix;
     
     /**
+	 * All fonts from fontface.me API.
+	 *
+	 * @since    1.2
+	 * @access   protected
+	 * @var      array    $fonts    All fonts from fontface.me API.
+	 */
+	protected $fonts = false;
+    
+    /**
 	 * Define attributes for the customizer settings.
 	 *
 	 * @since    1.0
 	 */
-    public function __construct( $textdomain ) {
+    public function __construct( $textdomain, $fonts ) {
         
         $this->textdomain = $textdomain;
         $this->prefix = 'awf_';
+        $this->fonts = $fonts;
         
     }
     
@@ -51,42 +61,28 @@ class AWF_Customizer_Settings {
 	 */
     public function load_fonts() {
         
-       $fonts = array(
-           ''                     => '— '.__( 'Select Font', $this->textdomain ).' —',
-           'lateef'               => 'لطيف',
-           'Noto-Urdu'            => 'نوتو أوردو',
-           'Thabit'               => 'ثابت',
-           'b-sepideh'            => 'Sepideh',
-           'boutros-ads'          => 'بطرس',
-           'stc'                  => 'STC',
-           'diwanltr'             => 'الديواني',
-           'barabics'             => 'أرابيكس',
-           'btehran'              => 'طهران',
-           'fanni'                => 'فني',
-           'kufi'                 => 'الكوفي',
-           'jooza'                => 'جذور',
-           'hama'                 => 'حماه',
-           'DroidKufi-Regular'    => 'درويد كوفي',
-           'amiri'                => 'الأميري',
-           'amiri-quran'          => 'الأميري قرآن',
-           'amiri-slanted'        => 'الأميري مائل',
-           'amiri-bold'           => 'الأميري عريض',
-           'Old-Antic-Bold'       => 'كوفي عريض',
-           'farsi-simple-bold'    => 'فارسي بسيط',
-           'diwani-bent'          => 'ديواني بينت',
-           'ah-moharram-bold'     => 'محرم',
-           'b-hamid'              => 'حامد',
-           'al-gemah-alhoda'      => 'Al Gemah Alhoda',
-           'old-antic-decorative' => 'كوفي مزخرف',
-           'b-compset'            => 'كمبوسيت',
-           'decotype-thuluth'     => 'ديكو ثلث',
-           'hamada'               => 'حماده خفيف',
-           'basim-marah'          => 'باسم مرح',
-           'flat-jooza'           => 'جذور مسطح',
-       );
+        /**
+         * Get all fonts
+         * this updated to use fonts API
+         *
+         * @since    1.2
+         */
         
-       return $fonts;
-        
+        $fonts = array();
+        $fonts_permalink = array();
+        $fonts_name = array();
+
+        foreach ($this->fonts as $font) {
+          $fonts_permalink[] = $font['permalink'];
+          $fonts_name[] = $font['name'];
+        }
+
+        $fonts_none = array( '' => '— '.__( 'Select Font', $this->textdomain ).' —' );
+        $all_fonts = array_combine($fonts_permalink, $fonts_name);
+        $fonts = array_merge($fonts_none, $all_fonts);
+
+        return $fonts;
+
     }
     
     /**
