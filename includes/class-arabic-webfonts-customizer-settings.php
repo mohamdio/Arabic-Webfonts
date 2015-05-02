@@ -679,7 +679,7 @@ class AWF_Customizer_Settings {
         */
         
         // check if any controls exists
-        $custom_controls = get_posts( array('post_type' => 'awf_font_control') );
+        $custom_controls = get_posts( array('post_type' => 'awf_font_control', 'posts_per_page' => -1) );
         
         if($custom_controls) {
             

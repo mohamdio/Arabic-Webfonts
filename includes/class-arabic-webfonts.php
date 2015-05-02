@@ -52,7 +52,7 @@ class AWF_Arabic_Webfonts {
     public function __construct() {
 
         $this->plugin_name = 'arabic-webfonts';
-		$this->version = '1.2';
+		$this->version = '1.3';
         $this->fonts = $this->get_fonts();
         
         $this->load_customizer();
@@ -192,7 +192,7 @@ class AWF_Arabic_Webfonts {
     private function get_custom_controls_ids() {
 
         // check if any controls exists
-        $custom_controls = get_posts( array('post_type' => 'awf_font_control') );
+        $custom_controls = get_posts( array('post_type' => 'awf_font_control', 'posts_per_page' => -1) );
 
         if($custom_controls) {
 
