@@ -3,7 +3,7 @@ WordPress plugin which allow you to add Arabic fonts easily to any theme without
 
 * Requires at least: 4.0
 * Tested up to: 4.2.1
-* Stable tag: 1.2
+* Stable tag: 1.3
 * License: GPLv2 or later
 
 == Description ==
@@ -25,6 +25,10 @@ the plugin depend on " Arabic fonts library " from http://fontface.me/
 * Reset any section settings or all settings.
 
 == Changelog ==
+
+= 1.3 =
+* 2015-5-2
+* fixed custom controls number which was show latest 5 enough
 
 = 1.2 =
 * 2015-4-30
