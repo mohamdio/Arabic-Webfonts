@@ -26,24 +26,19 @@ the plugin depend on " Arabic fonts library " from http://fontface.me/
 
 == Changelog ==
 
-= 1.4 =
-* 2015-5-18
+= 1.4 = 2015-5-18
 * fixed fonts file cache time & tested up to: 4.2.2
 
-= 1.3 =
-* 2015-5-2
+= 1.3 = 2015-5-2
 * fixed custom controls number which was show latest 5 enough
 
-= 1.2 =
-* 2015-4-30
+= 1.2 = 2015-4-30
 * start using fontface API to get list of all fonts as JSON
 
-= 1.1 =
-* 2015-4-28
+= 1.1 = 2015-4-28
 * added 3 new fonts
 * fixed font type duplicated
 * change menu position for plugin page
 
-= 1.0 =
-* 2015-4-22
+= 1.0 = 2015-4-22
 * Initial release
