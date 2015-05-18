@@ -52,7 +52,7 @@ class AWF_Arabic_Webfonts {
     public function __construct() {
 
         $this->plugin_name = 'arabic-webfonts';
-		$this->version = '1.3';
+		$this->version = '1.4';
         $this->fonts = $this->get_fonts();
         
         $this->load_customizer();
@@ -126,7 +126,7 @@ class AWF_Arabic_Webfonts {
         $cachetime = 86400 * 2;
         
         // check if file exist & cache time not expired
-        if( file_exists($fontsFile) && $cachetime < filemtime($fontsFile) ) {
+        if( file_exists($fontsFile) && (filemtime($fontsFile) > (time() - $cachetime)) ) {
             
             $content = json_decode( file_get_contents($fontsFile), true);
             
