@@ -3,8 +3,8 @@ Contributors: mandooox
 Tags: Arabic, Arabic fonts, Arabic webfonts, webfonts, fonts, Typography, WordPress fonts, WordPress Arabic fonts plugin, WordPress customizer
 Donate link: http://plugins.jozoor.com/arabic-webfonts/
 Requires at least: 4.0
-Tested up to: 4.2.1
-Stable tag: 1.3
+Tested up to: 4.2.2
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,10 @@ just see this video demo : http://plugins.jozoor.com/arabic-webfonts/#شرح-ا�
 3. Create your own font controls for your theme.
 
 == Changelog ==
+= 1.4 =
+* 2015-5-18
+* fixed fonts file cache time & tested up to: 4.2.2
+
 = 1.3 =
 * 2015-5-2
 * fixed custom controls number which was show latest 5 enough
