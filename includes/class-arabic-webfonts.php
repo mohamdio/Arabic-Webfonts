@@ -52,7 +52,7 @@ class AWF_Arabic_Webfonts {
     public function __construct() {
 
         $this->plugin_name = 'arabic-webfonts';
-		$this->version = '1.4';
+        $this->version = '1.4.1';
         $this->fonts = $this->get_fonts();
         
         $this->load_customizer();
@@ -621,7 +621,7 @@ class AWF_Arabic_Webfonts {
                
            } else {
            ?>
-           body, header, footer, .content, .sidebar { 
+           body, header, footer, .content, .sidebar, p, h1, h2, h3, h4, h5, h6 { 
            <?php if ( $body_font_family != '' ) { ?>   
            font-family: '<?php echo $body_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>

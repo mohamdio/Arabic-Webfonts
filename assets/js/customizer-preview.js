@@ -12,21 +12,21 @@
     // Update body font family in real time...
 	wp.customize( 'awf_body_font_family', function( value ) {
 		value.bind( function( newval ) {
-			$('body, header, footer, .content, .sidebar').css('font-family', newval );
+			$('body, header, footer, .content, .sidebar, p, h1, h2, h3, h4, h5, h6').css('font-family', newval );
 		} );
 	} );
     
     // Update body font size in real time...
 	wp.customize( 'awf_body_font_size', function( value ) {
 		value.bind( function( newval ) {
-			$('body, header, footer, .content, .sidebar').css('font-size', newval+ 'px' );
+			$('body, header, footer, .content, .sidebar, p, h1, h2, h3, h4, h5, h6').css('font-size', newval+ 'px' );
 		} );
 	} );
     
     // Update body line height in real time...
 	wp.customize( 'awf_body_line_height', function( value ) {
 		value.bind( function( newval ) {
-			$('body, header, footer, .content, .sidebar').css('line-height', newval );
+			$('body, header, footer, .content, .sidebar, p, h1, h2, h3, h4, h5, h6').css('line-height', newval );
 		} );
 	} );
     
