@@ -52,7 +52,7 @@ class AWF_Arabic_Webfonts {
     public function __construct() {
 
         $this->plugin_name = 'arabic-webfonts';
-        $this->version = '1.4.1';
+        $this->version = '1.4.2';
         $this->fonts = $this->get_fonts();
         
         $this->load_customizer();

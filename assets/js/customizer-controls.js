@@ -62,8 +62,10 @@ jQuery(document).ready(function($) {
         
         var num = getNumericPart($(this).attr('id'));
         
-        $('[id$=awf_headings_styles] .customize-control').hide();
-        $('[id$=awf_headings_styles] *[id*=fields_group].customize-control').show();
+        $('[id$=awf_headings_styles] .accordion-section-title').click(function() {
+           $('[id$=awf_headings_styles] .customize-control').hide();
+           $('[id$=awf_headings_styles] *[id*=fields_group].customize-control').show();
+        });
         
         $('[id$=awf_headings_styles] *[id*='+num+'_fields_group].customize-control').click(function() {
            $('[id$=awf_headings_styles] .customize-control').not($('[id$=awf_headings_styles] *[id*='+num+'].customize-control')).hide().find('.awf-fields-group').removeClass('open');
@@ -80,8 +82,10 @@ jQuery(document).ready(function($) {
 
             var num = getNumericPart($(this).attr('id'));
 
-            $('[id$=awf_custom_controls_styles] .customize-control').hide();
-            $('[id$=awf_custom_controls_styles] *[id*=fields_group].customize-control').show();
+            $('[id$=awf_custom_controls_styles] .accordion-section-title').click(function() {
+               $('[id$=awf_custom_controls_styles] .customize-control').hide();
+               $('[id$=awf_custom_controls_styles] *[id*=fields_group].customize-control').show();
+            });
 
             $('[id$=awf_custom_controls_styles] *[id*='+num+'_fields_group].customize-control').click(function() {
                $('[id$=awf_custom_controls_styles] .customize-control').not($('[id$=awf_custom_controls_styles] *[id*='+num+'].customize-control')).hide().find('.awf-fields-group').removeClass('open');
