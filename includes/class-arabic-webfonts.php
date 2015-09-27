@@ -52,7 +52,7 @@ class AWF_Arabic_Webfonts {
     public function __construct() {
 
         $this->plugin_name = 'arabic-webfonts';
-        $this->version = '1.4.2';
+        $this->version = '1.4.3';
         $this->fonts = $this->get_fonts();
         
         $this->load_customizer();
@@ -115,9 +115,6 @@ class AWF_Arabic_Webfonts {
 	 * @access   public
 	 */
     public function get_fonts() {
-        
-        // convert arabic text in json_decode
-        @header('Content-Type: text/html; charset=utf-8');
         
         // get fonts file content
         $fontsFile = plugin_dir_path( dirname( __FILE__ ) ) . 'assets/cache/fonts.txt';
