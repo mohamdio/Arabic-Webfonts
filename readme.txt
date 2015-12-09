@@ -3,7 +3,7 @@ Contributors: jozoor, mandooox
 Tags: Arabic, Arabic fonts, Arabic webfonts, webfonts, fonts, Typography, WordPress fonts, WordPress Arabic fonts plugin, WordPress customizer
 Donate link: http://plugins.jozoor.com/arabic-webfonts/
 Requires at least: 4.0
-Tested up to: 4.3.1
+Tested up to: 4.4
 Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
