@@ -123,7 +123,7 @@ class AWF_Arabic_Webfonts {
 		$transName = 'awf-get-fonts';
 
 		// time in days between updates, set to 2 days
-        $cacheTime = 2 * DAY_IN_SECONDS;
+		$cacheTime = 2 * DAY_IN_SECONDS;
 
 		// get cached fonts
 		$content = get_transient( $transName );
@@ -132,24 +132,24 @@ class AWF_Arabic_Webfonts {
 		if( $content === false ) {
 
 			// get all fonts from API json content
-            $fontfaceApi = 'http://fontface.me/font/all';
-            $fontsContent = wp_remote_get( $fontfaceApi, array('sslverify' => false) );
+		    $fontfaceApi = 'http://fontface.me/font/all';
+		    $fontsContent = wp_remote_get( $fontfaceApi, array('sslverify' => false) );
 
-            // check if it is not a valid request
-            if( is_wp_error( $fontsContent ) ) {
+		    // check if it is not a valid request
+		    if( is_wp_error( $fontsContent ) ) {
 
-                return;
+		        return;
 
-            } else {
+		    } else {
 
-                $content = json_decode($fontsContent['body'], true);
+		        $content = json_decode($fontsContent['body'], true);
 				set_transient($transName, $content, $cacheTime);
 
-            }
+		    }
 
 		}
 
-        return $content;
+		return $content;
 
     }
 
