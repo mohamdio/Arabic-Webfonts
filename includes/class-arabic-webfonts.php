@@ -54,10 +54,10 @@ class AWF_Arabic_Webfonts {
         $this->plugin_name = 'arabic-webfonts';
         $this->version = '1.4.3';
         $this->fonts = $this->get_fonts();
-        
+
         $this->load_customizer();
         $this->get_post_type();
-        
+
         add_action( 'wp_head' , array( $this, 'header_output' ) );
         add_action( 'wp_enqueue_scripts' , array( $this, 'enqueue_style' ) );
         add_action( 'customize_controls_enqueue_scripts' , array( $this, 'customize_controls_script' ) );
@@ -67,7 +67,7 @@ class AWF_Arabic_Webfonts {
         add_action( 'wp_footer_preview', array( $this, 'custom_css_selectors_live_preview' ), 9999, 0 );
 
     }
-    
+
     /**
 	 * The code that runs during plugin activation.
 	 *
@@ -75,15 +75,15 @@ class AWF_Arabic_Webfonts {
 	 * @access   public static
 	 */
     public static function activate() {
-        
+
         // get wp version
         global $wp_version;
-        
+
         // compatible version (or later)
         $wp_compatible_version  = '4.0';
-        
+
         if ( version_compare( $wp_version, $wp_compatible_version, '<' ) ) {
-            
+
             deactivate_plugins( basename( __FILE__ ) );
             wp_die(
                 '<p>' .
@@ -93,11 +93,11 @@ class AWF_Arabic_Webfonts {
                 )
                 . '</p> <a href="' . admin_url( 'plugins.php' ) . '">' . __( 'go back', 'arabic-webfonts' ) . '</a>'
             );
-            
+
         }
-         
+
     }
-    
+
     /**
 	 * The code that runs during plugin deactivation.
 	 *
@@ -105,9 +105,12 @@ class AWF_Arabic_Webfonts {
 	 * @access   public static
 	 */
     public static function deactivate() {
-         
+
+		// delete transients
+		delete_transient( 'awf-get-fonts' );
+
     }
-    
+
     /**
 	 * Get all fonts from fontface.me API.
 	 *
@@ -115,45 +118,41 @@ class AWF_Arabic_Webfonts {
 	 * @access   public
 	 */
     public function get_fonts() {
-        
-        // get fonts file content
-        $fontsFile = plugin_dir_path( dirname( __FILE__ ) ) . 'assets/cache/fonts.txt';
-        
-        // total time the file will be cached in seconds, set to 2 days
-        $cachetime = 86400 * 2;
-        
-        // check if file exist & cache time not expired
-        if( file_exists($fontsFile) && (filemtime($fontsFile) > (time() - $cachetime)) ) {
-            
-            $content = json_decode( file_get_contents($fontsFile), true);
-            
-        } else {
-            
-            // get all fonts from API json content
+
+		// name of transient in database
+		$transName = 'awf-get-fonts';
+
+		// time in days between updates, set to 2 days
+        $cacheTime = 2 * DAY_IN_SECONDS;
+
+		// get cached fonts
+		$content = get_transient( $transName );
+
+		// check for transient. If none, then get all fonts from API
+		if( $content === false ) {
+
+			// get all fonts from API json content
             $fontfaceApi = 'http://fontface.me/font/all';
             $fontsContent = wp_remote_get( $fontfaceApi, array('sslverify' => false) );
-            
+
             // check if it is not a valid request
             if( is_wp_error( $fontsContent ) ) {
-               
-                $content = json_decode( file_get_contents($fontsFile), true);
-                
+
+                return;
+
             } else {
-            
-                $fp = fopen($fontsFile, 'w');
-                fwrite($fp, $fontsContent['body']);
-                fclose($fp);
 
                 $content = json_decode($fontsContent['body'], true);
-                
+				set_transient($transName, $content, $cacheTime);
+
             }
-            
-        }
-        
+
+		}
+
         return $content;
-         
+
     }
-    
+
     /**
 	 * Load the customizer api.
 	 *
@@ -166,7 +165,7 @@ class AWF_Arabic_Webfonts {
         new AWF_Customizer( $this->plugin_name, $this->fonts );
 
     }
-    
+
     /**
 	 * Get the custom post type [ awf_font_control ].
 	 *
@@ -179,7 +178,7 @@ class AWF_Arabic_Webfonts {
         new AWF_Post_Type( $this->plugin_name );
 
     }
-    
+
     /**
 	 * Get all font controls ids from custom post type [ awf_font_control ].
 	 *
@@ -200,13 +199,13 @@ class AWF_Arabic_Webfonts {
                 $custom_controls_ids[] = $post->ID;
 
             }
-            
+
             return $custom_controls_ids;
 
         }
 
     }
-    
+
     /**
 	 * Enqueue style for for live customize preview and the normal site.
 	 *
@@ -217,11 +216,11 @@ class AWF_Arabic_Webfonts {
 
         // check if customize preview is active
         if ( is_customize_preview() ) {
-            
+
             /**
              * Get all fonts
              * this updated to use fonts API
-             * 
+             *
              * @since    1.2
              */
             $all_fonts = array();
@@ -239,7 +238,7 @@ class AWF_Arabic_Webfonts {
             );
 
         } else {
-            
+
             // get body font
             if ( get_theme_mod('awf_body_font_family') != '' ) { $body_font = get_theme_mod('awf_body_font_family'). ','; } else { $body_font = ''; }
             // get paragraphs font
@@ -256,31 +255,31 @@ class AWF_Arabic_Webfonts {
             if ( get_theme_mod('awf_h5_font_family') != '' ) { $h5_font = get_theme_mod('awf_h5_font_family'). ','; } else { $h5_font = ''; }
             // get h6 font
             if ( get_theme_mod('awf_h6_font_family') != '' ) { $h6_font = get_theme_mod('awf_h6_font_family'). ','; } else { $h6_font = ''; }
-            
+
             // get custom controls fonts
             if( $this->get_custom_controls_ids() ) {
-                
+
                 $custom_controls_fonts = array();
                 foreach ( $this->get_custom_controls_ids() as $id ) {
 
-                    if ( get_theme_mod('awf_'. $id .'_font_family') != '' ) { 
-                        $custom_controls_fonts[] = get_theme_mod('awf_'. $id .'_font_family'). ','; 
+                    if ( get_theme_mod('awf_'. $id .'_font_family') != '' ) {
+                        $custom_controls_fonts[] = get_theme_mod('awf_'. $id .'_font_family'). ',';
                     } else { $custom_controls_fonts[] = ''; }
 
                 }
-                
+
                 $custom_controls_fonts_display = implode('',$custom_controls_fonts);
 
             } else {
                 $custom_controls_fonts_display = '';
             }
-            
-            
+
+
             if( empty($body_font) && empty($paragraphs_font) && empty($h1_font) && empty($h2_font) && empty($h3_font)
                 && empty($h4_font) && empty($h5_font) && empty($h6_font) && empty($custom_controls_fonts_display) ) {
-                
+
             } else {
-                
+
                 // check if font type is duplicated
                 $default_settings_fonts_types = array ( $body_font, $paragraphs_font, $h1_font, $h2_font, $h3_font, $h4_font, $h5_font, $h6_font );
                 if( $this->get_custom_controls_ids() ) {
@@ -289,7 +288,7 @@ class AWF_Arabic_Webfonts {
                 } else {
                     $final_fonts_types = implode('',array_unique($default_settings_fonts_types));
                 }
-                
+
                 wp_enqueue_style(
                     $this->plugin_name,
                     '//www.fontstatic.com/f='.$final_fonts_types,
@@ -297,12 +296,12 @@ class AWF_Arabic_Webfonts {
                     null,
                     'all'
                 );
-                
+
             }
         }
 
     }
-    
+
     /**
 	 * Do action footer custom action working like [ customize_preview_init ].
 	 *
@@ -312,12 +311,12 @@ class AWF_Arabic_Webfonts {
     public function custom_footer_actions() {
 
         // check if customize preview is active
-        if ( is_customize_preview() ) { 
-            
+        if ( is_customize_preview() ) {
+
            // this action used to load wp.customize in live preview for custom controls
            do_action('wp_footer_preview');
-            
-        } 
+
+        }
 
     }
 
@@ -332,7 +331,7 @@ class AWF_Arabic_Webfonts {
         wp_enqueue_script( $this->plugin_name .'-customizer-preview', plugins_url( '/assets/js/customizer-preview.js', dirname(__FILE__) ), array( 'jquery', 'customize-preview' ), $this->version, true );
 
     }
-    
+
     /**
 	 * Enqueue custom script for cunstom controls in customize live preview.
 	 *
@@ -340,15 +339,15 @@ class AWF_Arabic_Webfonts {
 	 * @access   public
 	 */
     public function custom_css_selectors_live_preview() {
-        
+
         // get custom controls styles
         if( $this->get_custom_controls_ids() ) {
-            
-        ?>    
+
+        ?>
         <script type="text/javascript" id="<?php echo $this->plugin_name .'-css-selectors-customizer-preview'; ?>">
-          
+
         ( function( $ ) {
-            
+
             <?php
             foreach ( $this->get_custom_controls_ids() as $id ) {
 
@@ -391,15 +390,15 @@ class AWF_Arabic_Webfonts {
 
             } // end controls foreach
             ?>
-            
+
         } )( jQuery );
-            
+
         </script>
         <?php
         } // end check controls
-        
+
     }
-    
+
     /**
 	 * Enqueue style and script for customizer controls.
 	 *
@@ -408,28 +407,28 @@ class AWF_Arabic_Webfonts {
 	 */
     public function customize_controls_script() {
 
-        wp_enqueue_style( 
-            $this->plugin_name .'-customizer-controls', 
+        wp_enqueue_style(
+            $this->plugin_name .'-customizer-controls',
             plugins_url( '/assets/css/customizer-controls.css', dirname(__FILE__) ),
             array(),
             $this->version
-        );  
-        
-        wp_enqueue_script( 
-            $this->plugin_name .'-customizer-controls', 
-            plugins_url( '/assets/js/customizer-controls.js', dirname(__FILE__) ), 
-            array( 'jquery', 'customize-controls' ), 
-            $this->version, true 
         );
-        
-        wp_localize_script( 
-            $this->plugin_name .'-customizer-controls', 
-            'AWF_Customizer_Reset', 
-            array( 'confirm' => __( "Click OK to reset. All settings will be lost and replaced with default settings!", $this->plugin_name ), ) 
+
+        wp_enqueue_script(
+            $this->plugin_name .'-customizer-controls',
+            plugins_url( '/assets/js/customizer-controls.js', dirname(__FILE__) ),
+            array( 'jquery', 'customize-controls' ),
+            $this->version, true
+        );
+
+        wp_localize_script(
+            $this->plugin_name .'-customizer-controls',
+            'AWF_Customizer_Reset',
+            array( 'confirm' => __( "Click OK to reset. All settings will be lost and replaced with default settings!", $this->plugin_name ), )
         );
 
     }
-    
+
     /**
 	 * Ajax method for reset customizer settings button.
 	 *
@@ -437,94 +436,94 @@ class AWF_Arabic_Webfonts {
 	 * @access   public
 	 */
     public function ajax_reset_customizer_settings() {
-        
+
         // get section id
         $reset_section = esc_attr($_POST['reset_section']);
-        
+
         switch ( $reset_section ) {
-            
+
             // body section
             case 'awf_body_settings_reset_control':
-              
+
               remove_theme_mod('awf_body_font_family');
               remove_theme_mod('awf_body_font_size');
               remove_theme_mod('awf_body_line_height');
-            
+
             break;
-            
+
             // paragraphs section
             case 'awf_paragraphs_settings_reset_control':
-              
+
               remove_theme_mod('awf_paragraphs_font_family');
               remove_theme_mod('awf_paragraphs_font_size');
               remove_theme_mod('awf_paragraphs_line_height');
               remove_theme_mod('awf_paragraphs_text_decoration');
-            
+
             break;
-            
+
             // headings section - h1 group
             case 'awf_h1_settings_reset_control':
-              
+
               remove_theme_mod('awf_h1_font_family');
               remove_theme_mod('awf_h1_font_size');
               remove_theme_mod('awf_h1_line_height');
               remove_theme_mod('awf_h1_text_decoration');
-            
+
             break;
-            
+
             // headings section - h2 group
             case 'awf_h2_settings_reset_control':
-              
+
               remove_theme_mod('awf_h2_font_family');
               remove_theme_mod('awf_h2_font_size');
               remove_theme_mod('awf_h2_line_height');
               remove_theme_mod('awf_h2_text_decoration');
-            
+
             break;
-            
+
             // headings section - h3 group
             case 'awf_h3_settings_reset_control':
-              
+
               remove_theme_mod('awf_h3_font_family');
               remove_theme_mod('awf_h3_font_size');
               remove_theme_mod('awf_h3_line_height');
               remove_theme_mod('awf_h3_text_decoration');
-            
+
             break;
-            
+
             // headings section - h4 group
             case 'awf_h4_settings_reset_control':
-              
+
               remove_theme_mod('awf_h4_font_family');
               remove_theme_mod('awf_h4_font_size');
               remove_theme_mod('awf_h4_line_height');
               remove_theme_mod('awf_h4_text_decoration');
-            
+
             break;
-            
+
             // headings section - h5 group
             case 'awf_h5_settings_reset_control':
-              
+
               remove_theme_mod('awf_h5_font_family');
               remove_theme_mod('awf_h5_font_size');
               remove_theme_mod('awf_h5_line_height');
               remove_theme_mod('awf_h5_text_decoration');
-            
+
             break;
-            
+
             // headings section - h6 group
             case 'awf_h6_settings_reset_control':
-              
+
               remove_theme_mod('awf_h6_font_family');
               remove_theme_mod('awf_h6_font_size');
               remove_theme_mod('awf_h6_line_height');
               remove_theme_mod('awf_h6_text_decoration');
-            
+
             break;
-            
+
             // reset all settings
             case 'awf_all_settings_reset_control':
-              
+
               remove_theme_mod('awf_body_font_family');
               remove_theme_mod('awf_body_font_size');
               remove_theme_mod('awf_body_line_height');
@@ -569,16 +568,16 @@ class AWF_Arabic_Webfonts {
                 }
 
               }
-              
+
             break;
-            
+
             // custom controls section
             default:
-            
+
             if( $this->get_custom_controls_ids() ) {
-                
+
                 foreach ( $this->get_custom_controls_ids() as $id ) {
-                    
+
                   if( $reset_section == 'awf_'. $id .'_settings_reset_control' ) {
                       remove_theme_mod('awf_'. $id .'_font_family');
                       remove_theme_mod('awf_'. $id .'_font_size');
@@ -589,10 +588,10 @@ class AWF_Arabic_Webfonts {
                 }
 
             }
-            
+
             break;
-            
-            
+
+
         } // end switch section settings
 
     }
@@ -613,21 +612,21 @@ class AWF_Arabic_Webfonts {
            $body_font_family = get_theme_mod('awf_body_font_family');
            $body_font_size = get_theme_mod('awf_body_font_size');
            $body_line_height = get_theme_mod('awf_body_line_height');
-           
+
            if( empty( $body_font_family ) && empty( $body_font_size ) && empty( $body_line_height ) ) {
-               
+
            } else {
            ?>
-           body, header, footer, .content, .sidebar, p, h1, h2, h3, h4, h5, h6 { 
-           <?php if ( $body_font_family != '' ) { ?>   
+           body, header, footer, .content, .sidebar, p, h1, h2, h3, h4, h5, h6 {
+           <?php if ( $body_font_family != '' ) { ?>
            font-family: '<?php echo $body_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $body_font_size != '' ) { ?>   
+           <?php if ( $body_font_size != '' ) { ?>
            font-size: <?php echo $body_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $body_line_height != '' ) { ?>   
+           <?php if ( $body_line_height != '' ) { ?>
            line-height: <?php echo $body_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
-           <?php } ?> 
+           <?php } ?>
            }
            <?php } ?>
            <?php
@@ -636,24 +635,24 @@ class AWF_Arabic_Webfonts {
            $paragraphs_font_size = get_theme_mod('awf_paragraphs_font_size');
            $paragraphs_line_height = get_theme_mod('awf_paragraphs_line_height');
            $paragraphs_text_decoration = get_theme_mod('awf_paragraphs_text_decoration');
-           
+
            if( empty( $paragraphs_font_family ) && empty( $paragraphs_font_size ) && empty( $paragraphs_line_height ) && empty( $paragraphs_text_decoration ) ) {
-               
+
            } else {
            ?>
-           p { 
-           <?php if ( $paragraphs_font_family != '' ) { ?>   
+           p {
+           <?php if ( $paragraphs_font_family != '' ) { ?>
            font-family: '<?php echo $paragraphs_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $paragraphs_font_size != '' ) { ?>   
+           <?php if ( $paragraphs_font_size != '' ) { ?>
            font-size: <?php echo $paragraphs_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $paragraphs_line_height != '' ) { ?>   
+           <?php if ( $paragraphs_line_height != '' ) { ?>
            line-height: <?php echo $paragraphs_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $paragraphs_text_decoration != '' ) { ?>   
+           <?php if ( $paragraphs_text_decoration != '' ) { ?>
            text-decoration: <?php echo $paragraphs_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
-           <?php } ?> 
+           <?php } ?>
            }
            <?php } ?>
            <?php
@@ -662,24 +661,24 @@ class AWF_Arabic_Webfonts {
            $h1_font_size = get_theme_mod('awf_h1_font_size');
            $h1_line_height = get_theme_mod('awf_h1_line_height');
            $h1_text_decoration = get_theme_mod('awf_h1_text_decoration');
-        
+
            if( empty( $h1_font_family ) && empty( $h1_font_size ) && empty( $h1_line_height ) && empty( $h1_text_decoration ) ) {
-               
+
            } else {
            ?>
-           h1 { 
-           <?php if ( $h1_font_family != '' ) { ?>   
+           h1 {
+           <?php if ( $h1_font_family != '' ) { ?>
            font-family: '<?php echo $h1_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h1_font_size != '' ) { ?>   
+           <?php if ( $h1_font_size != '' ) { ?>
            font-size: <?php echo $h1_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h1_line_height != '' ) { ?>   
+           <?php if ( $h1_line_height != '' ) { ?>
            line-height: <?php echo $h1_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h1_text_decoration != '' ) { ?>   
+           <?php if ( $h1_text_decoration != '' ) { ?>
            text-decoration: <?php echo $h1_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
-           <?php } ?> 
+           <?php } ?>
            }
            <?php } ?>
            <?php
@@ -688,24 +687,24 @@ class AWF_Arabic_Webfonts {
            $h2_font_size = get_theme_mod('awf_h2_font_size');
            $h2_line_height = get_theme_mod('awf_h2_line_height');
            $h2_text_decoration = get_theme_mod('awf_h2_text_decoration');
-        
+
            if( empty( $h2_font_family ) && empty( $h2_font_size ) && empty( $h2_line_height ) && empty( $h2_text_decoration ) ) {
-               
+
            } else {
            ?>
-           h2 { 
-           <?php if ( $h2_font_family != '' ) { ?>   
+           h2 {
+           <?php if ( $h2_font_family != '' ) { ?>
            font-family: '<?php echo $h2_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h2_font_size != '' ) { ?>   
+           <?php if ( $h2_font_size != '' ) { ?>
            font-size: <?php echo $h2_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h2_line_height != '' ) { ?>   
+           <?php if ( $h2_line_height != '' ) { ?>
            line-height: <?php echo $h2_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h2_text_decoration != '' ) { ?>   
+           <?php if ( $h2_text_decoration != '' ) { ?>
            text-decoration: <?php echo $h2_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
-           <?php } ?> 
+           <?php } ?>
            }
            <?php } ?>
            <?php
@@ -714,24 +713,24 @@ class AWF_Arabic_Webfonts {
            $h3_font_size = get_theme_mod('awf_h3_font_size');
            $h3_line_height = get_theme_mod('awf_h3_line_height');
            $h3_text_decoration = get_theme_mod('awf_h3_text_decoration');
-        
+
            if( empty( $h3_font_family ) && empty( $h3_font_size ) && empty( $h3_line_height ) && empty( $h3_text_decoration ) ) {
-               
+
            } else {
            ?>
-           h3 { 
-           <?php if ( $h3_font_family != '' ) { ?>   
+           h3 {
+           <?php if ( $h3_font_family != '' ) { ?>
            font-family: '<?php echo $h3_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h3_font_size != '' ) { ?>   
+           <?php if ( $h3_font_size != '' ) { ?>
            font-size: <?php echo $h3_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h3_line_height != '' ) { ?>   
+           <?php if ( $h3_line_height != '' ) { ?>
            line-height: <?php echo $h3_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h3_text_decoration != '' ) { ?>   
+           <?php if ( $h3_text_decoration != '' ) { ?>
            text-decoration: <?php echo $h3_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
-           <?php } ?> 
+           <?php } ?>
            }
            <?php } ?>
            <?php
@@ -740,24 +739,24 @@ class AWF_Arabic_Webfonts {
            $h4_font_size = get_theme_mod('awf_h4_font_size');
            $h4_line_height = get_theme_mod('awf_h4_line_height');
            $h4_text_decoration = get_theme_mod('awf_h4_text_decoration');
-        
+
            if( empty( $h4_font_family ) && empty( $h4_font_size ) && empty( $h4_line_height ) && empty( $h4_text_decoration ) ) {
-               
+
            } else {
            ?>
-           h4 { 
-           <?php if ( $h4_font_family != '' ) { ?>   
+           h4 {
+           <?php if ( $h4_font_family != '' ) { ?>
            font-family: '<?php echo $h4_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h4_font_size != '' ) { ?>   
+           <?php if ( $h4_font_size != '' ) { ?>
            font-size: <?php echo $h4_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h4_line_height != '' ) { ?>   
+           <?php if ( $h4_line_height != '' ) { ?>
            line-height: <?php echo $h4_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h4_text_decoration != '' ) { ?>   
+           <?php if ( $h4_text_decoration != '' ) { ?>
            text-decoration: <?php echo $h4_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
-           <?php } ?> 
+           <?php } ?>
            }
            <?php } ?>
            <?php
@@ -766,24 +765,24 @@ class AWF_Arabic_Webfonts {
            $h5_font_size = get_theme_mod('awf_h5_font_size');
            $h5_line_height = get_theme_mod('awf_h5_line_height');
            $h5_text_decoration = get_theme_mod('awf_h5_text_decoration');
-        
+
            if( empty( $h5_font_family ) && empty( $h5_font_size ) && empty( $h5_line_height ) && empty( $h5_text_decoration ) ) {
-               
+
            } else {
            ?>
-           h5 { 
-           <?php if ( $h5_font_family != '' ) { ?>   
+           h5 {
+           <?php if ( $h5_font_family != '' ) { ?>
            font-family: '<?php echo $h5_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h5_font_size != '' ) { ?>   
+           <?php if ( $h5_font_size != '' ) { ?>
            font-size: <?php echo $h5_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h5_line_height != '' ) { ?>   
+           <?php if ( $h5_line_height != '' ) { ?>
            line-height: <?php echo $h5_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h5_text_decoration != '' ) { ?>   
+           <?php if ( $h5_text_decoration != '' ) { ?>
            text-decoration: <?php echo $h5_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
-           <?php } ?> 
+           <?php } ?>
            }
            <?php } ?>
            <?php
@@ -792,28 +791,28 @@ class AWF_Arabic_Webfonts {
            $h6_font_size = get_theme_mod('awf_h6_font_size');
            $h6_line_height = get_theme_mod('awf_h6_line_height');
            $h6_text_decoration = get_theme_mod('awf_h6_text_decoration');
-        
+
            if( empty( $h6_font_family ) && empty( $h6_font_size ) && empty( $h6_line_height ) && empty( $h6_text_decoration ) ) {
-               
+
            } else {
            ?>
-           h6 { 
-           <?php if ( $h6_font_family != '' ) { ?>   
+           h6 {
+           <?php if ( $h6_font_family != '' ) { ?>
            font-family: '<?php echo $h6_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h6_font_size != '' ) { ?>   
+           <?php if ( $h6_font_size != '' ) { ?>
            font-size: <?php echo $h6_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h6_line_height != '' ) { ?>   
+           <?php if ( $h6_line_height != '' ) { ?>
            line-height: <?php echo $h6_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
-           <?php if ( $h6_text_decoration != '' ) { ?>   
+           <?php if ( $h6_text_decoration != '' ) { ?>
            text-decoration: <?php echo $h6_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
-           <?php } ?> 
+           <?php } ?>
            }
            <?php } ?>
            <?php
-           
+
             // get custom controls styles
             if( $this->get_custom_controls_ids() ) {
 
@@ -821,32 +820,32 @@ class AWF_Arabic_Webfonts {
 
                     // get css selectors
                     $css_selectors = get_post_meta( $id, '_awf_css_selectors', true );
-                    
+
                     $id_font_family = get_theme_mod('awf_'. $id .'_font_family');
                     $id_font_size = get_theme_mod('awf_'. $id .'_font_size');
                     $id_line_height = get_theme_mod('awf_'. $id .'_line_height');
                     $id_text_decoration = get_theme_mod('awf_'. $id .'_text_decoration');
 
                     if( empty( $id_font_family ) && empty( $id_font_size ) && empty( $id_line_height ) && empty( $id_text_decoration ) ) {
-                        
+
                     } else {
 
                         if( !empty( $css_selectors ) ) {
                 ?>
 
                             <?php echo $css_selectors; ?> {
-                                <?php if ( $id_font_family != '' ) { ?>   
+                                <?php if ( $id_font_family != '' ) { ?>
                                 font-family: '<?php echo $id_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
                                 <?php } ?>
-                                <?php if ( $id_font_size != '' ) { ?>   
+                                <?php if ( $id_font_size != '' ) { ?>
                                 font-size: <?php echo $id_font_size; ?>px <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
                                 <?php } ?>
-                                <?php if ( $id_line_height != '' ) { ?>   
+                                <?php if ( $id_line_height != '' ) { ?>
                                 line-height: <?php echo $id_line_height; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
                                 <?php } ?>
-                                <?php if ( $id_text_decoration != '' ) { ?>   
+                                <?php if ( $id_text_decoration != '' ) { ?>
                                 text-decoration: <?php echo $id_text_decoration; ?> <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
-                                <?php } ?> 
+                                <?php } ?>
                             }
 
                 <?php
@@ -857,7 +856,7 @@ class AWF_Arabic_Webfonts {
                 } // end controls foreach
 
             } // end check controls
-        
+
            ?>
 	    </style>
         <?php
