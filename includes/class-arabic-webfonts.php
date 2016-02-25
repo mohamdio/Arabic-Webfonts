@@ -52,7 +52,7 @@ class AWF_Arabic_Webfonts {
     public function __construct() {
 
         $this->plugin_name = 'arabic-webfonts';
-        $this->version = '1.4.3';
+        $this->version = '1.4.4';
         $this->fonts = $this->get_fonts();
 
         $this->load_customizer();
@@ -119,35 +119,35 @@ class AWF_Arabic_Webfonts {
 	 */
     public function get_fonts() {
 
-		// name of transient in database
-		$transName = 'awf-get-fonts';
+        // name of transient in database
+        $transName = 'awf-get-fonts';
 
-		// time in days between updates, set to 2 days
-		$cacheTime = 2 * DAY_IN_SECONDS;
+        // time in days between updates, set to 2 days
+        $cacheTime = 2 * DAY_IN_SECONDS;
 
-		// get cached fonts
-		$content = get_transient( $transName );
+        // get cached fonts
+        $content = get_transient( $transName );
 
-		// check for transient. If none, then get all fonts from API
-		if( $content === false ) {
+        // check for transient. If none, then get all fonts from API
+        if( $content === false ) {
 
-			// get all fonts from API json content
-		    $fontfaceApi = 'http://fontface.me/font/all';
-		    $fontsContent = wp_remote_get( $fontfaceApi, array('sslverify' => false) );
+        	// get all fonts from API json content
+            $fontfaceApi = 'http://fontface.me/font/all';
+            $fontsContent = wp_remote_get( $fontfaceApi, array('sslverify' => false) );
 
-		    // check if it is not a valid request
-		    if( is_wp_error( $fontsContent ) ) {
+            // check if it is not a valid request
+            if( is_wp_error( $fontsContent ) ) {
 
-		        return;
+                return;
 
-		    } else {
+            } else {
 
-		        $content = json_decode($fontsContent['body'], true);
-				set_transient($transName, $content, $cacheTime);
+                $content = json_decode($fontsContent['body'], true);
+        		set_transient($transName, $content, $cacheTime);
 
-		    }
+            }
 
-		}
+        }
 
 		return $content;
 
