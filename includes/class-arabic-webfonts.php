@@ -129,10 +129,10 @@ class AWF_Arabic_Webfonts {
         $content = get_transient( $transName );
 
         // check for transient. If none, then get all fonts from API
-        if( $content === false ) {
+        if( $content === false && is_admin()) {
 
         	// get all fonts from API json content
-            $fontfaceApi = 'http://fontface.me/font/all';
+            $fontfaceApi = 'http://www.fontface.me/font/all';
             $fontsContent = wp_remote_get( $fontfaceApi, array('sslverify' => false) );
 
             // check if it is not a valid request
