@@ -2,7 +2,7 @@
 WordPress plugin which allow you to add Arabic fonts easily to any theme without coding using WordPress Customizer.
 
 * Requires at least: 4.0
-* Tested up to: 4.5.2
+* Tested up to: 4.6
 * Stable tag: 1.4.4
 * License: GPLv2 or later
 
@@ -12,11 +12,11 @@ The plugin main page : http://plugins.jozoor.com/arabic-webfonts/
 
 The plugin Video demo : https://www.youtube.com/watch?v=MoAGLEywBgg
 
-An easy way to add Arabic fonts to any theme without coding using WordPress Customizer. This plugin integrates with the WordPress Customizer so you can preview all Arabic fonts on your site in realtime. It's compatible with any theme. 
+An easy way to add Arabic fonts to any theme without coding using WordPress Customizer. This plugin integrates with the WordPress Customizer so you can preview all Arabic fonts on your site in realtime. It's compatible with any theme.
 
 It also allows you to create custom font controls in the plugin admin page area to control particular css selectors. Once created, these custom font controls are instantly available in the customizer no coding required!
 
-the plugin depend on " Arabic fonts library " from http://fontface.me/ 
+the plugin depend on " Arabic fonts library " from http://fontface.me/
 
 = Plugin Features =
 * An easy way to add Arabic fonts to your site.
@@ -34,7 +34,7 @@ the plugin depend on " Arabic fonts library " from http://fontface.me/
 
 = 1.4.2 = 2015-8-23
 * fixed styles issues to compatible with WP 4.3
- 
+
 = 1.4.1 = 2015-6-13
 * fixed Apply font to whole website
 
