@@ -1,0 +1,55 @@
+[
+    {
+        "name": "jozoor/wp-plugin-action-links",
+        "version": "dev-dist",
+        "version_normalized": "dev-dist",
+        "source": {
+            "type": "git",
+            "url": "git@github.com:mohamdio/wp-plugin-action-links.git",
+            "reference": "33bdf9377e94115884a92860e96e6bddad4763c9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mohamdio/wp-plugin-action-links/zipball/33bdf9377e94115884a92860e96e6bddad4763c9",
+            "reference": "33bdf9377e94115884a92860e96e6bddad4763c9",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6"
+        },
+        "require-dev": {
+            "phpunit/php-code-coverage": "4.0.8",
+            "phpunit/phpunit": "5.7"
+        },
+        "time": "2017-11-12T13:47:46+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "JO\\Module\\PluginActionLinks\\": "src/"
+            }
+        },
+        "scripts": {
+            "test": [
+                "./vendor/bin/phpunit"
+            ]
+        },
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Mohamed Abd Elhalim",
+                "homepage": "https://mohamd.io/"
+            }
+        ],
+        "description": "WordPress module to add the list of links to display on the plugins page beside the activate and deactivate links.",
+        "homepage": "https://github.com/mohamdio/wp-plugin-action-links",
+        "keywords": [
+            "action",
+            "links",
+            "plugins",
+            "wordpress"
+        ]
+    }
+]

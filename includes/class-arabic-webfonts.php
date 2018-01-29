@@ -1,4 +1,7 @@
 <?php
+
+use JO\Module\PluginActionLinks\Links;
+
 /**
  * The file that defines the core plugin class
  *
@@ -50,6 +53,17 @@ class AWF_Arabic_Webfonts {
 	 * @since    1.0
 	 */
     public function __construct() {
+
+        /**
+         * Add a plugin link beside the activate and deactivate links
+         * @since 1.4.5
+         */
+        $jo_plugin_links = new Links('arabic-webfonts/arabic-webfonts.php');
+        $jo_plugin_links->add([
+            [
+                'more-plugins' => '<a href="https://codecanyon.net/user/jozoor/portfolio?ref=Jozoor" target="_blank" style="color: #39b54a;font-weight: 700;">' . __('المزيد من الإضافات بواسطة Jozoor', 'arabic-webfonts') . '</a>'
+            ],
+        ]);
 
         $this->plugin_name = 'arabic-webfonts';
         $this->version = '1.4.4';

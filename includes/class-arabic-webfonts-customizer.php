@@ -237,6 +237,21 @@ class AWF_Customizer {
                             );
                         
                         break;
+
+                        // jozoor plugins Field
+                        case 'jozoor_plugins':
+
+                            $wp_customize->add_control( new AWF_Customize_Jozoor_Plugins_Control( $wp_customize, esc_attr( $field['id'].'_control' ) , array(
+                                'label'       => $field['title'],
+                                'description' => $field['description'],
+                                'section'     => $option['id'],
+                                'settings'    => $field['id'],
+                                'priority'    => $priority,
+                                'type'        => 'jozoor_plugins',
+                            ) )
+                            );
+                        
+                        break;
                         
                     } // end switch field type
                     

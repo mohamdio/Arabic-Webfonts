@@ -37,6 +37,20 @@
     content: '\f142';
 }
 
+.jozoor-plugins-list li {
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+.jozoor-plugins-list a {
+    text-decoration: none;
+}
+
+.jozoor-plugins-list a.awf-jozoor-plugin-name {
+    font-size: 16px;
+}
+
 body.rtl .awf-fields-group:after {
     right: inherit;
     left: 5px;

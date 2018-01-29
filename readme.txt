@@ -1,10 +1,11 @@
 === Arabic Webfonts ===
 Contributors: jozoor, mandooox
 Tags: Arabic, Arabic fonts, Arabic webfonts, webfonts, fonts, Typography, WordPress fonts, WordPress Arabic fonts plugin, WordPress customizer
-Donate link: http://plugins.jozoor.com/arabic-webfonts/
+Donate link: https://codecanyon.net/user/jozoor/portfolio?ref=Jozoor
 Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 1.4.4
+Tested up to: 4.9.2
+Requires PHP: 5.6
+Stable tag: 1.4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,22 +13,29 @@ An easy way to add Arabic fonts to any theme without coding using WordPress Cust
 
 == Description ==
 
-The plugin main page : http://plugins.jozoor.com/arabic-webfonts/
+> An easy way to add Arabic fonts to any theme without coding using WordPress Customizer.
 
-The plugin Video demo :
+[Arabic Webfonts Site](http://plugins.jozoor.com/arabic-webfonts/) | [Jozoor Plugins](https://codecanyon.net/user/jozoor/portfolio?ref=Jozoor) | [Jozoor Themes](https://themeforest.net/user/jozoor/portfolio?ref=Jozoor)
+
+Follow us: [Twitter](https://twitter.com/jozoor) - [Facebook](https://www.facebook.com/Jozoor) - [Youtube](https://youtube.com/jozoor) - [Dribbble](https://dribbble.com/jozoor)
+
 [youtube https://www.youtube.com/watch?v=MoAGLEywBgg]
 
 An easy way to add Arabic fonts to any theme without coding using WordPress Customizer. This plugin integrates with the WordPress Customizer so you can preview all Arabic fonts on your site in realtime. It's compatible with any theme.
 
 It also allows you to create custom font controls in the plugin admin page area to control particular css selectors. Once created, these custom font controls are instantly available in the customizer no coding required!
 
-The plugin depend on " Arabic fonts library " from : http://fontface.me/
+The plugin depend on " Arabic fonts library " from : [fontface.me](http://fontface.me/)
 
 = Plugin Features =
 * An easy way to add Arabic fonts to your site.
 * Control in the font type, size and style for any section in real time.
 * Adding custom font controls for your theme.
 * Reset any section settings or all settings.
+
+== Jozoor Plugins List ==
+* [Shortcode Cleaner](https://plugins.jozoor.com/shortcode-cleaner/) :
+Clean your WordPress content from unused broken shortcodes. [Watch Demo](https://www.youtube.com/watch?v=dXVZ5bSUduc)
 
 == Installation ==
 Installing "Arabic Webfonts" can be done either by searching for "Arabic Webfonts" via the "Plugins > Add New" screen in your WordPress dashboard, or by using the following steps:
@@ -51,6 +59,10 @@ just see this video demo :
 3. Create your own font controls for your theme.
 
 == Changelog ==
+= 1.4.5 =
+* 2018-1-29
+* fixed styles issues to compatible with WP 4.9.2
+
 = 1.4.4 =
 * 2016-2-25
 * using transient cache instead of text file

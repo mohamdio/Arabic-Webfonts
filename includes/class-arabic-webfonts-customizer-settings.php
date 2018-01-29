@@ -791,6 +791,26 @@ class AWF_Customizer_Settings {
                                     'type'              => 'reset_button', // field type
                                 ),
             )
+        );
+
+        // Jozoor plugins section
+        $options[] = array( 
+            'id'             => $this->prefix . 'jozoor_plugins',
+            'title'          => __( 'More Plugins By Jozoor', $this->textdomain ),
+            'description'    => __( 'Latest Plugins By Jozoor Team', $this->textdomain ),
+            'theme_supports' => '',
+            'type'           => 'section', // type = section
+            'panel'          => $this->prefix . 'arabic_webfonts', // panel
+            'fields'         => array(
+                                array(
+                                    'id'                => $this->prefix . 'jozoor_plugins_list',
+                                    'title'             => '',
+                                    'description'       => '',
+                                    'default'           => '',
+                                    'sanitize_callback' => '',
+                                    'type'              => 'jozoor_plugins', // field type
+                                ),
+            )
         ); 
         
         

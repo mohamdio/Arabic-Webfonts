@@ -1,30 +1,39 @@
 # Arabic-Webfonts
-WordPress plugin which allow you to add Arabic fonts easily to any theme without coding using WordPress Customizer.
+> WordPress plugin which allow you to add Arabic fonts easily to any theme without coding using WordPress Customizer.
 
 * Requires at least: 4.0
-* Tested up to: 4.8
-* Stable tag: 1.4.4
+* Tested up to: 4.9.2
+* Requires PHP: 5.6
+* Stable tag: 1.4.5
 * License: GPLv2 or later
 
-== Description ==
+### Description
 
-The plugin main page : http://plugins.jozoor.com/arabic-webfonts/
+An easy way to add Arabic fonts to any theme without coding using WordPress Customizer.
 
-The plugin Video demo : https://www.youtube.com/watch?v=MoAGLEywBgg
+[Arabic Webfonts Site](http://plugins.jozoor.com/arabic-webfonts/) | [Jozoor Plugins](https://codecanyon.net/user/jozoor/portfolio?ref=Jozoor) | [Jozoor Themes](https://themeforest.net/user/jozoor/portfolio?ref=Jozoor)
+
+Follow us: [Twitter](https://twitter.com/jozoor) - [Facebook](https://www.facebook.com/Jozoor) - [Youtube](https://youtube.com/jozoor) - [Dribbble](https://dribbble.com/jozoor)
+
+[youtube https://www.youtube.com/watch?v=MoAGLEywBgg]
 
 An easy way to add Arabic fonts to any theme without coding using WordPress Customizer. This plugin integrates with the WordPress Customizer so you can preview all Arabic fonts on your site in realtime. It's compatible with any theme.
 
 It also allows you to create custom font controls in the plugin admin page area to control particular css selectors. Once created, these custom font controls are instantly available in the customizer no coding required!
 
-the plugin depend on " Arabic fonts library " from http://fontface.me/
+The plugin depend on " Arabic fonts library " from : [fontface.me](http://fontface.me/)
 
-= Plugin Features =
+### Plugin Features
 * An easy way to add Arabic fonts to your site.
 * Control in the font type, size and style for any section in real time.
 * Adding custom font controls for your theme.
 * Reset any section settings or all settings.
 
-== Changelog ==
+### Jozoor Plugins List
+* [Shortcode Cleaner](https://plugins.jozoor.com/shortcode-cleaner/) :
+Clean your WordPress content from unused broken shortcodes. [Watch Demo](https://www.youtube.com/watch?v=dXVZ5bSUduc)
+
+### Changelog
 
 = 1.4.4 = 2016-2-25
 * using transient cache instead of text file
