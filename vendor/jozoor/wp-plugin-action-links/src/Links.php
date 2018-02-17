@@ -96,9 +96,7 @@ class Links
         static $plugin;
 
         // get the plugin basename file
-        if (!isset($plugin)) {
-            $plugin = $this->plugin_basename;
-        }
+        $plugin = $this->plugin_basename;
 
         // now we can add new links
         if ($plugin === $plugin_file) {

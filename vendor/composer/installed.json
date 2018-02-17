@@ -6,12 +6,12 @@
         "source": {
             "type": "git",
             "url": "git@github.com:mohamdio/wp-plugin-action-links.git",
-            "reference": "33bdf9377e94115884a92860e96e6bddad4763c9"
+            "reference": "9c02c38327d7d8eb0795a20bba5f7653652ba2b1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/mohamdio/wp-plugin-action-links/zipball/33bdf9377e94115884a92860e96e6bddad4763c9",
-            "reference": "33bdf9377e94115884a92860e96e6bddad4763c9",
+            "url": "https://api.github.com/repos/mohamdio/wp-plugin-action-links/zipball/9c02c38327d7d8eb0795a20bba5f7653652ba2b1",
+            "reference": "9c02c38327d7d8eb0795a20bba5f7653652ba2b1",
             "shasum": ""
         },
         "require": {
@@ -21,7 +21,7 @@
             "phpunit/php-code-coverage": "4.0.8",
             "phpunit/phpunit": "5.7"
         },
-        "time": "2017-11-12T13:47:46+00:00",
+        "time": "2018-02-12T16:03:28+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
