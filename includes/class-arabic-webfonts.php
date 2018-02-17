@@ -59,14 +59,17 @@ class AWF_Arabic_Webfonts {
          * @since 1.4.5
          */
         $jo_plugin_links = new Links('arabic-webfonts/arabic-webfonts.php');
-        $jo_plugin_links->add([
-            [
-                'more-plugins' => '<a href="https://codecanyon.net/user/jozoor/portfolio?ref=Jozoor" target="_blank" style="color: #39b54a;font-weight: 700;">' . __('المزيد من الإضافات بواسطة Jozoor', 'arabic-webfonts') . '</a>'
-            ],
-        ]);
+        $jo_plugin_links->add(array(
+            array(
+                'awf-controls' => '<a href="' . esc_url(get_admin_url(null, 'edit.php?post_type=awf_font_control')) . '">' . __('All Controls', 'arabic-webfonts') . '</a>',
+            ),
+            array(
+                'more-plugins' => '<a href="https://codecanyon.net/user/jozoor/portfolio?ref=Jozoor" target="_blank" style="color: #39b54a;font-weight: 700;">' . __('More Plugins', 'arabic-webfonts') . '</a>',
+            ),
+        ));
 
         $this->plugin_name = 'arabic-webfonts';
-        $this->version = '1.4.4';
+        $this->version = '1.4.6';
         $this->fonts = $this->get_fonts();
 
         $this->load_customizer();
@@ -438,7 +441,7 @@ class AWF_Arabic_Webfonts {
         wp_localize_script(
             $this->plugin_name .'-customizer-controls',
             'AWF_Customizer_Reset',
-            array( 'confirm' => __( "Click OK to reset. All settings will be lost and replaced with default settings!", $this->plugin_name ), )
+            array( 'confirm' => __( "Click OK to reset. All settings will be lost and replaced with default settings!", 'arabic-webfonts' ), )
         );
 
     }
@@ -631,7 +634,7 @@ class AWF_Arabic_Webfonts {
 
            } else {
            ?>
-           body, header, footer, .content, .sidebar, p, h1, h2, h3, h4, h5, h6 {
+           body.rtl, body.rtl header, body.rtl footer, body.rtl .content, body.rtl .sidebar, body.rtl p, body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4, body.rtl h5, body.rtl h6, body.rtl ul, body.rtl li, body.rtl div, body.rtl nav, body.rtl nav a, body.rtl nav ul li, body.rtl input, body.rtl button, body.rtl label, body.rtl textarea, body.rtl input::placeholder {
            <?php if ( $body_font_family != '' ) { ?>
            font-family: '<?php echo $body_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
@@ -654,7 +657,7 @@ class AWF_Arabic_Webfonts {
 
            } else {
            ?>
-           p {
+           body.rtl p {
            <?php if ( $paragraphs_font_family != '' ) { ?>
            font-family: '<?php echo $paragraphs_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
@@ -680,7 +683,7 @@ class AWF_Arabic_Webfonts {
 
            } else {
            ?>
-           h1 {
+           body.rtl h1 {
            <?php if ( $h1_font_family != '' ) { ?>
            font-family: '<?php echo $h1_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
@@ -706,7 +709,7 @@ class AWF_Arabic_Webfonts {
 
            } else {
            ?>
-           h2 {
+           body.rtl h2 {
            <?php if ( $h2_font_family != '' ) { ?>
            font-family: '<?php echo $h2_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
@@ -732,7 +735,7 @@ class AWF_Arabic_Webfonts {
 
            } else {
            ?>
-           h3 {
+           body.rtl h3 {
            <?php if ( $h3_font_family != '' ) { ?>
            font-family: '<?php echo $h3_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
@@ -758,7 +761,7 @@ class AWF_Arabic_Webfonts {
 
            } else {
            ?>
-           h4 {
+           body.rtl h4 {
            <?php if ( $h4_font_family != '' ) { ?>
            font-family: '<?php echo $h4_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
@@ -784,7 +787,7 @@ class AWF_Arabic_Webfonts {
 
            } else {
            ?>
-           h5 {
+           body.rtl h5 {
            <?php if ( $h5_font_family != '' ) { ?>
            font-family: '<?php echo $h5_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>
@@ -810,7 +813,7 @@ class AWF_Arabic_Webfonts {
 
            } else {
            ?>
-           h6 {
+           body.rtl h6 {
            <?php if ( $h6_font_family != '' ) { ?>
            font-family: '<?php echo $h6_font_family; ?>' <?php if ( !is_customize_preview() ) { ?>!important<?php } ?>;
            <?php } ?>

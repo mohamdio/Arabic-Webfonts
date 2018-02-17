@@ -77,7 +77,7 @@ class AWF_Customizer_Settings {
           $fonts_name[] = $font['name'];
         }
 
-        $fonts_none = array( '' => '— '.__( 'Select Font', $this->textdomain ).' —' );
+        $fonts_none = array( '' => '— '.__( 'Select Font', 'arabic-webfonts' ).' —' );
         $all_fonts = array_combine($fonts_permalink, $fonts_name);
         $fonts = array_merge($fonts_none, $all_fonts);
 
@@ -100,8 +100,8 @@ class AWF_Customizer_Settings {
          */
         $options[] = array( 
             'id'             => $this->prefix . 'arabic_webfonts',
-            'title'          => __( 'Arabic Webfonts', $this->textdomain ),
-            'description'    => __( 'An easy way to add Arabic fonts to any theme without coding using WordPress Customizer.', $this->textdomain ),
+            'title'          => __( 'Arabic Webfonts', 'arabic-webfonts' ),
+            'description'    => __( 'An easy way to add Arabic fonts to any theme without coding using WordPress Customizer.', 'arabic-webfonts' ),
             'theme_supports' => '',
             'type'           => 'panel' // type = panel
         ); 
@@ -115,15 +115,15 @@ class AWF_Customizer_Settings {
         // Body section
         $options[] = array( 
             'id'             => $this->prefix . 'body_styles',
-            'title'          => __( 'Body', $this->textdomain ),
-            'description'    => __( 'Control in body content typography', $this->textdomain ),
+            'title'          => __( 'Body', 'arabic-webfonts' ),
+            'description'    => __( 'Control in body content typography', 'arabic-webfonts' ),
             'theme_supports' => '',
             'type'           => 'section', // type = section
             'panel'          => $this->prefix . 'arabic_webfonts', // panel
             'fields'         => array(
                                 array(
                                     'id'                => $this->prefix . 'body_font_family',
-                                    'title'             => __( 'Font Family', $this->textdomain ),
+                                    'title'             => __( 'Font Family', 'arabic-webfonts' ),
                                     'description'       => '',
                                     'default'           => '',
                                     'sanitize_callback' => '',
@@ -132,8 +132,8 @@ class AWF_Customizer_Settings {
                                 ),
                                 array(
                                     'id'                => $this->prefix . 'body_font_size',
-                                    'title'             => __( 'Font Size', $this->textdomain ),
-                                    'description'       => __( 'from 10 to 100 px, default = 14px', $this->textdomain ),
+                                    'title'             => __( 'Font Size', 'arabic-webfonts' ),
+                                    'description'       => __( 'from 10 to 100 px, default = 14px', 'arabic-webfonts' ),
                                     'default'           => 14,
                                     'sanitize_callback' => '',
                                     'type'              => 'range', // field type
@@ -146,8 +146,8 @@ class AWF_Customizer_Settings {
                                 ),
                                 array(
                                     'id'                => $this->prefix . 'body_line_height',
-                                    'title'             => __( 'Line Height', $this->textdomain ),
-                                    'description'       => __( 'from 0.5 to 5, default = 1.2', $this->textdomain ),
+                                    'title'             => __( 'Line Height', 'arabic-webfonts' ),
+                                    'description'       => __( 'from 0.5 to 5, default = 1.2', 'arabic-webfonts' ),
                                     'default'           => 1.2,
                                     'sanitize_callback' => '',
                                     'type'              => 'range', // field type
@@ -172,15 +172,15 @@ class AWF_Customizer_Settings {
         // Paragraphs section
         $options[] = array( 
             'id'             => $this->prefix . 'paragraphs_styles',
-            'title'          => __( 'Paragraphs', $this->textdomain ),
-            'description'    => __( 'Control in Paragraphs typography', $this->textdomain ),
+            'title'          => __( 'Paragraphs', 'arabic-webfonts' ),
+            'description'    => __( 'Control in Paragraphs typography', 'arabic-webfonts' ),
             'theme_supports' => '',
             'type'           => 'section', // type = section
             'panel'          => $this->prefix . 'arabic_webfonts', // panel
             'fields'         => array(
                                 array(
                                     'id'                => $this->prefix . 'paragraphs_font_family',
-                                    'title'             => __( 'Font Family', $this->textdomain ),
+                                    'title'             => __( 'Font Family', 'arabic-webfonts' ),
                                     'description'       => '',
                                     'default'           => '',
                                     'sanitize_callback' => '',
@@ -189,8 +189,8 @@ class AWF_Customizer_Settings {
                                 ),
                                 array(
                                     'id'                => $this->prefix . 'paragraphs_font_size',
-                                    'title'             => __( 'Font Size', $this->textdomain ),
-                                    'description'       => __( 'from 10 to 100 px, default = 14px', $this->textdomain ),
+                                    'title'             => __( 'Font Size', 'arabic-webfonts' ),
+                                    'description'       => __( 'from 10 to 100 px, default = 14px', 'arabic-webfonts' ),
                                     'default'           => 14,
                                     'sanitize_callback' => '',
                                     'type'              => 'range', // field type
@@ -203,8 +203,8 @@ class AWF_Customizer_Settings {
                                 ),
                                 array(
                                     'id'                => $this->prefix . 'paragraphs_line_height',
-                                    'title'             => __( 'Line Height', $this->textdomain ),
-                                    'description'       => __( 'from 0.5 to 5, default = 1.2', $this->textdomain ),
+                                    'title'             => __( 'Line Height', 'arabic-webfonts' ),
+                                    'description'       => __( 'from 0.5 to 5, default = 1.2', 'arabic-webfonts' ),
                                     'default'           => 1.2,
                                     'sanitize_callback' => '',
                                     'type'              => 'range', // field type
@@ -217,13 +217,13 @@ class AWF_Customizer_Settings {
                                 ),
                                 array(
                                     'id'                => $this->prefix . 'paragraphs_text_decoration',
-                                    'title'             => __( 'Text Decoration', $this->textdomain ),
+                                    'title'             => __( 'Text Decoration', 'arabic-webfonts' ),
                                     'description'       => '',
                                     'default'           => '',
                                     'sanitize_callback' => '',
                                     'type'              => 'select', // field type
                                     'choices'           => array(
-                                        ''             => '— '.__( 'Select Decoration', $this->textdomain ).' —',
+                                        ''             => '— '.__( 'Select Decoration', 'arabic-webfonts' ).' —',
                                         'none'         => 'None',
                                         'underline'    => 'Underline',
                                         'line-through' => 'Line-through',
@@ -244,8 +244,8 @@ class AWF_Customizer_Settings {
         // Headings section
         $options[] = array( 
             'id'             => $this->prefix . 'headings_styles',
-            'title'          => __( 'Headings', $this->textdomain ),
-            'description'    => __( 'Control in Headings typography', $this->textdomain ),
+            'title'          => __( 'Headings', 'arabic-webfonts' ),
+            'description'    => __( 'Control in Headings typography', 'arabic-webfonts' ),
             'theme_supports' => '',
             'type'           => 'section', // type = section
             'panel'          => $this->prefix . 'arabic_webfonts', // panel
@@ -254,7 +254,7 @@ class AWF_Customizer_Settings {
                                 // H1 fields group
                                 array(
                                     'id'                => $this->prefix . 'h1_fields_group',
-                                    'title'             => __( 'Heading - H1', $this->textdomain ),
+                                    'title'             => __( 'Heading - H1', 'arabic-webfonts' ),
                                     'description'       => '',
                                     'default'           => '',
                                     'sanitize_callback' => '',
@@ -262,7 +262,7 @@ class AWF_Customizer_Settings {
                                 ),
                                     array(
                                         'id'                => $this->prefix . 'h1_font_family',
-                                        'title'             => __( 'Font Family', $this->textdomain ),
+                                        'title'             => __( 'Font Family', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
@@ -271,8 +271,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h1_font_size',
-                                        'title'             => __( 'Font Size', $this->textdomain ),
-                                        'description'       => __( 'from 10 to 100 px, default = 24px', $this->textdomain ),
+                                        'title'             => __( 'Font Size', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 10 to 100 px, default = 24px', 'arabic-webfonts' ),
                                         'default'           => 24,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -285,8 +285,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h1_line_height',
-                                        'title'             => __( 'Line Height', $this->textdomain ),
-                                        'description'       => __( 'from 0.5 to 5, default = 1.2', $this->textdomain ),
+                                        'title'             => __( 'Line Height', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 0.5 to 5, default = 1.2', 'arabic-webfonts' ),
                                         'default'           => 1.2,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -299,13 +299,13 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h1_text_decoration',
-                                        'title'             => __( 'Text Decoration', $this->textdomain ),
+                                        'title'             => __( 'Text Decoration', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
                                         'type'              => 'select', // field type
                                         'choices'           => array(
-                                            ''             => '— '.__( 'Select Decoration', $this->textdomain ).' —',
+                                            ''             => '— '.__( 'Select Decoration', 'arabic-webfonts' ).' —',
                                             'none'         => 'None',
                                             'underline'    => 'Underline',
                                             'line-through' => 'Line-through',
@@ -324,7 +324,7 @@ class AWF_Customizer_Settings {
                                 // H2 fields group
                                 array(
                                     'id'                => $this->prefix . 'h2_fields_group',
-                                    'title'             => __( 'Heading - H2', $this->textdomain ),
+                                    'title'             => __( 'Heading - H2', 'arabic-webfonts' ),
                                     'description'       => '',
                                     'default'           => '',
                                     'sanitize_callback' => '',
@@ -332,7 +332,7 @@ class AWF_Customizer_Settings {
                                 ),
                                     array(
                                         'id'                => $this->prefix . 'h2_font_family',
-                                        'title'             => __( 'Font Family', $this->textdomain ),
+                                        'title'             => __( 'Font Family', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
@@ -341,8 +341,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h2_font_size',
-                                        'title'             => __( 'Font Size', $this->textdomain ),
-                                        'description'       => __( 'from 10 to 100 px, default = 22px', $this->textdomain ),
+                                        'title'             => __( 'Font Size', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 10 to 100 px, default = 22px', 'arabic-webfonts' ),
                                         'default'           => 22,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -355,8 +355,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h2_line_height',
-                                        'title'             => __( 'Line Height', $this->textdomain ),
-                                        'description'       => __( 'from 0.5 to 5, default = 1.2', $this->textdomain ),
+                                        'title'             => __( 'Line Height', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 0.5 to 5, default = 1.2', 'arabic-webfonts' ),
                                         'default'           => 1.2,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -369,13 +369,13 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h2_text_decoration',
-                                        'title'             => __( 'Text Decoration', $this->textdomain ),
+                                        'title'             => __( 'Text Decoration', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
                                         'type'              => 'select', // field type
                                         'choices'           => array(
-                                            ''             => '— '.__( 'Select Decoration', $this->textdomain ).' —',
+                                            ''             => '— '.__( 'Select Decoration', 'arabic-webfonts' ).' —',
                                             'none'         => 'None',
                                             'underline'    => 'Underline',
                                             'line-through' => 'Line-through',
@@ -394,7 +394,7 @@ class AWF_Customizer_Settings {
                                 // H3 fields group
                                 array(
                                     'id'                => $this->prefix . 'h3_fields_group',
-                                    'title'             => __( 'Heading - H3', $this->textdomain ),
+                                    'title'             => __( 'Heading - H3', 'arabic-webfonts' ),
                                     'description'       => '',
                                     'default'           => '',
                                     'sanitize_callback' => '',
@@ -402,7 +402,7 @@ class AWF_Customizer_Settings {
                                 ),
                                     array(
                                         'id'                => $this->prefix . 'h3_font_family',
-                                        'title'             => __( 'Font Family', $this->textdomain ),
+                                        'title'             => __( 'Font Family', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
@@ -411,8 +411,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h3_font_size',
-                                        'title'             => __( 'Font Size', $this->textdomain ),
-                                        'description'       => __( 'from 10 to 100 px, default = 20px', $this->textdomain ),
+                                        'title'             => __( 'Font Size', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 10 to 100 px, default = 20px', 'arabic-webfonts' ),
                                         'default'           => 20,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -425,8 +425,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h3_line_height',
-                                        'title'             => __( 'Line Height', $this->textdomain ),
-                                        'description'       => __( 'from 0.5 to 5, default = 1.2', $this->textdomain ),
+                                        'title'             => __( 'Line Height', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 0.5 to 5, default = 1.2', 'arabic-webfonts' ),
                                         'default'           => 1.2,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -439,13 +439,13 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h3_text_decoration',
-                                        'title'             => __( 'Text Decoration', $this->textdomain ),
+                                        'title'             => __( 'Text Decoration', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
                                         'type'              => 'select', // field type
                                         'choices'           => array(
-                                            ''             => '— '.__( 'Select Decoration', $this->textdomain ).' —',
+                                            ''             => '— '.__( 'Select Decoration', 'arabic-webfonts' ).' —',
                                             'none'         => 'None',
                                             'underline'    => 'Underline',
                                             'line-through' => 'Line-through',
@@ -464,7 +464,7 @@ class AWF_Customizer_Settings {
                                  // H4 fields group
                                 array(
                                     'id'                => $this->prefix . 'h4_fields_group',
-                                    'title'             => __( 'Heading - H4', $this->textdomain ),
+                                    'title'             => __( 'Heading - H4', 'arabic-webfonts' ),
                                     'description'       => '',
                                     'default'           => '',
                                     'sanitize_callback' => '',
@@ -472,7 +472,7 @@ class AWF_Customizer_Settings {
                                 ),
                                     array(
                                         'id'                => $this->prefix . 'h4_font_family',
-                                        'title'             => __( 'Font Family', $this->textdomain ),
+                                        'title'             => __( 'Font Family', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
@@ -481,8 +481,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h4_font_size',
-                                        'title'             => __( 'Font Size', $this->textdomain ),
-                                        'description'       => __( 'from 10 to 100 px, default = 18px', $this->textdomain ),
+                                        'title'             => __( 'Font Size', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 10 to 100 px, default = 18px', 'arabic-webfonts' ),
                                         'default'           => 18,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -495,8 +495,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h4_line_height',
-                                        'title'             => __( 'Line Height', $this->textdomain ),
-                                        'description'       => __( 'from 0.5 to 5, default = 1.2', $this->textdomain ),
+                                        'title'             => __( 'Line Height', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 0.5 to 5, default = 1.2', 'arabic-webfonts' ),
                                         'default'           => 1.2,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -509,13 +509,13 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h4_text_decoration',
-                                        'title'             => __( 'Text Decoration', $this->textdomain ),
+                                        'title'             => __( 'Text Decoration', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
                                         'type'              => 'select', // field type
                                         'choices'           => array(
-                                            ''             => '— '.__( 'Select Decoration', $this->textdomain ).' —',
+                                            ''             => '— '.__( 'Select Decoration', 'arabic-webfonts' ).' —',
                                             'none'         => 'None',
                                             'underline'    => 'Underline',
                                             'line-through' => 'Line-through',
@@ -534,7 +534,7 @@ class AWF_Customizer_Settings {
                                  // H5 fields group
                                 array(
                                     'id'                => $this->prefix . 'h5_fields_group',
-                                    'title'             => __( 'Heading - H5', $this->textdomain ),
+                                    'title'             => __( 'Heading - H5', 'arabic-webfonts' ),
                                     'description'       => '',
                                     'default'           => '',
                                     'sanitize_callback' => '',
@@ -542,7 +542,7 @@ class AWF_Customizer_Settings {
                                 ),
                                     array(
                                         'id'                => $this->prefix . 'h5_font_family',
-                                        'title'             => __( 'Font Family', $this->textdomain ),
+                                        'title'             => __( 'Font Family', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
@@ -551,8 +551,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h5_font_size',
-                                        'title'             => __( 'Font Size', $this->textdomain ),
-                                        'description'       => __( 'from 10 to 100 px, default = 16px', $this->textdomain ),
+                                        'title'             => __( 'Font Size', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 10 to 100 px, default = 16px', 'arabic-webfonts' ),
                                         'default'           => 16,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -565,8 +565,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h5_line_height',
-                                        'title'             => __( 'Line Height', $this->textdomain ),
-                                        'description'       => __( 'from 0.5 to 5, default = 1.2', $this->textdomain ),
+                                        'title'             => __( 'Line Height', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 0.5 to 5, default = 1.2', 'arabic-webfonts' ),
                                         'default'           => 1.2,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -579,13 +579,13 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h5_text_decoration',
-                                        'title'             => __( 'Text Decoration', $this->textdomain ),
+                                        'title'             => __( 'Text Decoration', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
                                         'type'              => 'select', // field type
                                         'choices'           => array(
-                                            ''             => '— '.__( 'Select Decoration', $this->textdomain ).' —',
+                                            ''             => '— '.__( 'Select Decoration', 'arabic-webfonts' ).' —',
                                             'none'         => 'None',
                                             'underline'    => 'Underline',
                                             'line-through' => 'Line-through',
@@ -604,7 +604,7 @@ class AWF_Customizer_Settings {
                                  // H6 fields group
                                 array(
                                     'id'                => $this->prefix . 'h6_fields_group',
-                                    'title'             => __( 'Heading - H6', $this->textdomain ),
+                                    'title'             => __( 'Heading - H6', 'arabic-webfonts' ),
                                     'description'       => '',
                                     'default'           => '',
                                     'sanitize_callback' => '',
@@ -612,7 +612,7 @@ class AWF_Customizer_Settings {
                                 ),
                                     array(
                                         'id'                => $this->prefix . 'h6_font_family',
-                                        'title'             => __( 'Font Family', $this->textdomain ),
+                                        'title'             => __( 'Font Family', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
@@ -621,8 +621,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h6_font_size',
-                                        'title'             => __( 'Font Size', $this->textdomain ),
-                                        'description'       => __( 'from 10 to 100 px, default = 14px', $this->textdomain ),
+                                        'title'             => __( 'Font Size', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 10 to 100 px, default = 14px', 'arabic-webfonts' ),
                                         'default'           => 14,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -635,8 +635,8 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h6_line_height',
-                                        'title'             => __( 'Line Height', $this->textdomain ),
-                                        'description'       => __( 'from 0.5 to 5, default = 1.2', $this->textdomain ),
+                                        'title'             => __( 'Line Height', 'arabic-webfonts' ),
+                                        'description'       => __( 'from 0.5 to 5, default = 1.2', 'arabic-webfonts' ),
                                         'default'           => 1.2,
                                         'sanitize_callback' => '',
                                         'type'              => 'range', // field type
@@ -649,13 +649,13 @@ class AWF_Customizer_Settings {
                                     ),
                                     array(
                                         'id'                => $this->prefix . 'h6_text_decoration',
-                                        'title'             => __( 'Text Decoration', $this->textdomain ),
+                                        'title'             => __( 'Text Decoration', 'arabic-webfonts' ),
                                         'description'       => '',
                                         'default'           => '',
                                         'sanitize_callback' => '',
                                         'type'              => 'select', // field type
                                         'choices'           => array(
-                                            ''             => '— '.__( 'Select Decoration', $this->textdomain ).' —',
+                                            ''             => '— '.__( 'Select Decoration', 'arabic-webfonts' ).' —',
                                             'none'         => 'None',
                                             'underline'    => 'Underline',
                                             'line-through' => 'Line-through',
@@ -699,7 +699,7 @@ class AWF_Customizer_Settings {
               array_push( $fields_group, 
                             array(
                                 'id'                => $this->prefix . $post->ID .'_font_family',
-                                'title'             => __( 'Font Family', $this->textdomain ),
+                                'title'             => __( 'Font Family', 'arabic-webfonts' ),
                                 'description'       => '',
                                 'default'           => '',
                                 'sanitize_callback' => '',
@@ -708,8 +708,8 @@ class AWF_Customizer_Settings {
                             ),
                             array(
                                 'id'                => $this->prefix . $post->ID .'_font_size',
-                                'title'             => __( 'Font Size', $this->textdomain ),
-                                'description'       => __( 'from 10 to 100 px, default = 14px', $this->textdomain ),
+                                'title'             => __( 'Font Size', 'arabic-webfonts' ),
+                                'description'       => __( 'from 10 to 100 px, default = 14px', 'arabic-webfonts' ),
                                 'default'           => 14,
                                 'sanitize_callback' => '',
                                 'type'              => 'range', // field type
@@ -722,8 +722,8 @@ class AWF_Customizer_Settings {
                             ),
                             array(
                                 'id'                => $this->prefix . $post->ID .'_line_height',
-                                'title'             => __( 'Line Height', $this->textdomain ),
-                                'description'       => __( 'from 0.5 to 5, default = 1.2', $this->textdomain ),
+                                'title'             => __( 'Line Height', 'arabic-webfonts' ),
+                                'description'       => __( 'from 0.5 to 5, default = 1.2', 'arabic-webfonts' ),
                                 'default'           => 1.2,
                                 'sanitize_callback' => '',
                                 'type'              => 'range', // field type
@@ -736,13 +736,13 @@ class AWF_Customizer_Settings {
                             ),
                             array(
                                 'id'                => $this->prefix . $post->ID .'_text_decoration',
-                                'title'             => __( 'Text Decoration', $this->textdomain ),
+                                'title'             => __( 'Text Decoration', 'arabic-webfonts' ),
                                 'description'       => '',
                                 'default'           => '',
                                 'sanitize_callback' => '',
                                 'type'              => 'select', // field type
                                 'choices'           => array(
-                                    ''             => '— '.__( 'Select Decoration', $this->textdomain ).' —',
+                                    ''             => '— '.__( 'Select Decoration', 'arabic-webfonts' ).' —',
                                     'none'         => 'None',
                                     'underline'    => 'Underline',
                                     'line-through' => 'Line-through',
@@ -763,8 +763,8 @@ class AWF_Customizer_Settings {
             
             $options[] = array( 
                 'id'             => $this->prefix . 'custom_controls_styles',
-                'title'          => __( 'Custom controls', $this->textdomain ),
-                'description'    => __( 'Control in Custom Controls typography', $this->textdomain ),
+                'title'          => __( 'Custom controls', 'arabic-webfonts' ),
+                'description'    => __( 'Control in Custom Controls typography', 'arabic-webfonts' ),
                 'theme_supports' => '',
                 'type'           => 'section', // type = section
                 'panel'          => $this->prefix . 'arabic_webfonts', // panel
@@ -776,8 +776,8 @@ class AWF_Customizer_Settings {
         // Reset All section
         $options[] = array( 
             'id'             => $this->prefix . 'reset_all',
-            'title'          => __( 'Reset All Settings', $this->textdomain ),
-            'description'    => __( 'When click to reset, All settings will be lost and replaced with default settings!', $this->textdomain ),
+            'title'          => __( 'Reset All Settings', 'arabic-webfonts' ),
+            'description'    => __( 'When click to reset, All settings will be lost and replaced with default settings!', 'arabic-webfonts' ),
             'theme_supports' => '',
             'type'           => 'section', // type = section
             'panel'          => $this->prefix . 'arabic_webfonts', // panel
@@ -796,8 +796,8 @@ class AWF_Customizer_Settings {
         // Jozoor plugins section
         $options[] = array( 
             'id'             => $this->prefix . 'jozoor_plugins',
-            'title'          => __( 'More Plugins By Jozoor', $this->textdomain ),
-            'description'    => __( 'Latest Plugins By Jozoor Team', $this->textdomain ),
+            'title'          => __( 'More Plugins By Jozoor', 'arabic-webfonts' ),
+            'description'    => __( 'Latest Plugins By Jozoor', 'arabic-webfonts' ),
             'theme_supports' => '',
             'type'           => 'section', // type = section
             'panel'          => $this->prefix . 'arabic_webfonts', // panel

@@ -75,11 +75,11 @@ class AWF_Customize_Jozoor_Plugins_Control extends WP_Customize_Control {
         </label>
         <ul class="jozoor-plugins-list">
         	<li>
-        		<a href="https://plugins.jozoor.com/shortcode-cleaner/" target="_blank" class="awf-jozoor-plugin-name">Shortcode Cleaner</a>
+        		<a href="https://wordpress.org/plugins/shortcode-cleaner-lite/" target="_blank" class="awf-jozoor-plugin-name">Shortcode Cleaner</a>
         		<p>
         		<?php _e('Clean WordPress Content from Broken Shortcodes.', 'arabic-webfonts'); ?>
         		</p>
-        		<a href="https://www.youtube.com/watch?v=dXVZ5bSUduc" target="_blank"><?php _e('View Demo', 'arabic-webfonts'); ?></a> | <a href="https://codecanyon.net/item/shortcode-cleaner-clean-wordpress-content-from-broken-shortcodes/21253243?ref=Jozoor" target="_blank"><?php _e('Get it Now', 'arabic-webfonts'); ?></a>
+        		<a href="https://www.youtube.com/watch?v=dXVZ5bSUduc" target="_blank"><?php _e('View Demo', 'arabic-webfonts'); ?></a> | <a href="https://wordpress.org/plugins/shortcode-cleaner-lite/" target="_blank"><?php _e('Download Free', 'arabic-webfonts'); ?></a>
         	</li>
         </ul>
         <br>
